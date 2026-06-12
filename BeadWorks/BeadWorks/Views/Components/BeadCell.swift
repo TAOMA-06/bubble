@@ -49,7 +49,7 @@ struct BeadCell: View {
     }
 }
 
-private extension Color {
+extension Color {
     var contrastText: Color {
         // 简单亮度判断
         let uiColor = UIColor(self)
