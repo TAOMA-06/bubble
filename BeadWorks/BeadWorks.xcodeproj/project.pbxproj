@@ -22,8 +22,12 @@
 		E8EB1E8F3F474888BA64BC5A /* ImageToBeadConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D667F29C370A4599AB9EEFF2 /* ImageToBeadConverter.swift */; };
 		FA0DBC7BBEF4404992531E75 /* ImageToBeadConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D90C772D47410DA27AEAC8 /* ImageToBeadConverterTests.swift */; };
 		CC1A2B3D4E5F6789A0B1C2D4 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1B2C3D4E5F6789A0B1C2D3 /* MainMenuView.swift */; };
-		DD2B3C4E5F6789A0B1C2D3E5 /* _Placeholders.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2C3D4E5F6789A0B1C2D3E4 /* _Placeholders.swift */; };
 		EE1A2B3D4E5F6789A0B1C2D5 /* CanvasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2B3D4E5F6789A0B1C2D3E6 /* CanvasViewModel.swift */; };
+		33AABBCCDDEEFF0011223344 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AABBCCDDEEFF0011223344 /* CanvasView.swift */; };
+		44AABBCCDDEEFF0011223345 /* FinishedWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AABBCCDDEEFF0011223345 /* FinishedWorkView.swift */; };
+		77AABBCCDDEEFF0011223348 /* ColorPaletteBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AABBCCDDEEFF0011223346 /* ColorPaletteBar.swift */; };
+		88AABBCCDDEEFF0011223349 /* ToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AABBCCDDEEFF0011223347 /* ToolBarView.swift */; };
+		AA99AABBCCDDEEFF0011223350 /* ImageImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AABBCCDDEEFF0011223350 /* ImageImportView.swift */; };
 		FF1A2B3D4E5F6789A0B1C2D6 /* CanvasViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2B3D4E5F6789A0B1C2D3E7 /* CanvasViewModelTests.swift */; };
 		BB3C4D5E6F789A0B1C2D3E8 /* BeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3D4E5F789A0B1C2D3E8F9 /* BeadCell.swift */; };
 		CC4D5E6F789A0B1C2D3E8F0 /* PegboardBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E5F789A0B1C2D3E8F01 /* PegboardBackground.swift */; };
@@ -58,7 +62,11 @@
 		D667F29C370A4599AB9EEFF2 /* ImageToBeadConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageToBeadConverter.swift; path = Services/ImageToBeadConverter.swift; sourceTree = "<group>"; };
 		75D90C772D47410DA27AEAC8 /* ImageToBeadConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageToBeadConverterTests.swift; path = Services/ImageToBeadConverterTests.swift; sourceTree = "<group>"; };
 		AA1B2C3D4E5F6789A0B1C2D3 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainMenuView.swift; path = Views/MainMenuView.swift; sourceTree = "<group>"; };
-		BB2C3D4E5F6789A0B1C2D3E4 /* _Placeholders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = _Placeholders.swift; path = Views/_Placeholders.swift; sourceTree = "<group>"; };
+		11AABBCCDDEEFF0011223344 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CanvasView.swift; path = Views/CanvasView.swift; sourceTree = "<group>"; };
+		22AABBCCDDEEFF0011223345 /* FinishedWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FinishedWorkView.swift; path = Views/FinishedWorkView.swift; sourceTree = "<group>"; };
+		55AABBCCDDEEFF0011223346 /* ColorPaletteBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorPaletteBar.swift; path = Views/ColorPaletteBar.swift; sourceTree = "<group>"; };
+		66AABBCCDDEEFF0011223347 /* ToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolBarView.swift; path = Views/ToolBarView.swift; sourceTree = "<group>"; };
+		99AABBCCDDEEFF0011223350 /* ImageImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageImportView.swift; path = Views/ImageImportView.swift; sourceTree = "<group>"; };
 		CC2B3D4E5F6789A0B1C2D3E6 /* CanvasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CanvasViewModel.swift; path = ViewModels/CanvasViewModel.swift; sourceTree = "<group>"; };
 		DD2B3D4E5F6789A0B1C2D3E7 /* CanvasViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CanvasViewModelTests.swift; path = ViewModels/CanvasViewModelTests.swift; sourceTree = "<group>"; };
 		CC3D4E5F789A0B1C2D3E8F9 /* BeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeadCell.swift; path = Views/Components/BeadCell.swift; sourceTree = "<group>"; };
@@ -116,8 +124,12 @@
 				B2C1D3E4F5A64B2A9D8E7C70 /* BeadPaletteRepository.swift */,
 				D667F29C370A4599AB9EEFF2 /* ImageToBeadConverter.swift */,
 				AA1B2C3D4E5F6789A0B1C2D3 /* MainMenuView.swift */,
-				BB2C3D4E5F6789A0B1C2D3E4 /* _Placeholders.swift */,
+				11AABBCCDDEEFF0011223344 /* CanvasView.swift */,
+				22AABBCCDDEEFF0011223345 /* FinishedWorkView.swift */,
 				CC2B3D4E5F6789A0B1C2D3E6 /* CanvasViewModel.swift */,
+				55AABBCCDDEEFF0011223346 /* ColorPaletteBar.swift */,
+				66AABBCCDDEEFF0011223347 /* ToolBarView.swift */,
+				99AABBCCDDEEFF0011223350 /* ImageImportView.swift */,
 				CC3D4E5F789A0B1C2D3E8F9 /* BeadCell.swift */,
 				DD4E5F789A0B1C2D3E8F01 /* PegboardBackground.swift */,
 				EE5F789A0B1C2D3E8F03 /* BeadGridView.swift */,
@@ -237,12 +249,16 @@
 					F1A2B3C4D5E64A1B8C3D4E62 /* CanvasState.swift in Sources */,
 					F1A2B3C4D5E64A1B8C3D4E64 /* BeadPaletteRepository.swift in Sources */,
 					E8EB1E8F3F474888BA64BC5A /* ImageToBeadConverter.swift in Sources */,
-					CC1A2B3D4E5F6789A0B1C2D4 /* MainMenuView.swift in Sources */,
-					DD2B3C4E5F6789A0B1C2D3E5 /* _Placeholders.swift in Sources */,
-					EE1A2B3D4E5F6789A0B1C2D5 /* CanvasViewModel.swift in Sources */,
-					BB3C4D5E6F789A0B1C2D3E8 /* BeadCell.swift in Sources */,
-					CC4D5E6F789A0B1C2D3E8F0 /* PegboardBackground.swift in Sources */,
-					DD5E6F789A0B1C2D3E8F02 /* BeadGridView.swift in Sources */,
+				CC1A2B3D4E5F6789A0B1C2D4 /* MainMenuView.swift in Sources */,
+				33AABBCCDDEEFF0011223344 /* CanvasView.swift in Sources */,
+				44AABBCCDDEEFF0011223345 /* FinishedWorkView.swift in Sources */,
+				EE1A2B3D4E5F6789A0B1C2D5 /* CanvasViewModel.swift in Sources */,
+				77AABBCCDDEEFF0011223348 /* ColorPaletteBar.swift in Sources */,
+				88AABBCCDDEEFF0011223349 /* ToolBarView.swift in Sources */,
+				AA99AABBCCDDEEFF0011223350 /* ImageImportView.swift in Sources */,
+				BB3C4D5E6F789A0B1C2D3E8 /* BeadCell.swift in Sources */,
+				CC4D5E6F789A0B1C2D3E8F0 /* PegboardBackground.swift in Sources */,
+				DD5E6F789A0B1C2D3E8F02 /* BeadGridView.swift in Sources */,
 				);
 				runOnlyForDeploymentPostprocessing = 0;
 			};
