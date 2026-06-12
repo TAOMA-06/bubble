@@ -28,10 +28,12 @@
 		77AABBCCDDEEFF0011223348 /* ColorPaletteBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AABBCCDDEEFF0011223346 /* ColorPaletteBar.swift */; };
 		88AABBCCDDEEFF0011223349 /* ToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AABBCCDDEEFF0011223347 /* ToolBarView.swift */; };
 		AA99AABBCCDDEEFF0011223350 /* ImageImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AABBCCDDEEFF0011223350 /* ImageImportView.swift */; };
+		AA99AABBCCDDEEFF0011223351 /* ConversionPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AABBCCDDEEFF0011223351 /* ConversionPreviewView.swift */; };
 		FF1A2B3D4E5F6789A0B1C2D6 /* CanvasViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2B3D4E5F6789A0B1C2D3E7 /* CanvasViewModelTests.swift */; };
 		BB3C4D5E6F789A0B1C2D3E8 /* BeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3D4E5F789A0B1C2D3E8F9 /* BeadCell.swift */; };
 		CC4D5E6F789A0B1C2D3E8F0 /* PegboardBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E5F789A0B1C2D3E8F01 /* PegboardBackground.swift */; };
 		DD5E6F789A0B1C2D3E8F02 /* BeadGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F789A0B1C2D3E8F03 /* BeadGridView.swift */; };
+		11BBCCDDEEFF001122334A /* CanvasStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BBCCDDEEFF001122334B /* CanvasStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		55AABBCCDDEEFF0011223346 /* ColorPaletteBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorPaletteBar.swift; path = Views/ColorPaletteBar.swift; sourceTree = "<group>"; };
 		66AABBCCDDEEFF0011223347 /* ToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolBarView.swift; path = Views/ToolBarView.swift; sourceTree = "<group>"; };
 		99AABBCCDDEEFF0011223350 /* ImageImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageImportView.swift; path = Views/ImageImportView.swift; sourceTree = "<group>"; };
+		99AABBCCDDEEFF0011223351 /* ConversionPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConversionPreviewView.swift; path = Views/ConversionPreviewView.swift; sourceTree = "<group>"; };
+		22BBCCDDEEFF001122334B /* CanvasStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CanvasStore.swift; path = Services/CanvasStore.swift; sourceTree = "<group>"; };
 		CC2B3D4E5F6789A0B1C2D3E6 /* CanvasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CanvasViewModel.swift; path = ViewModels/CanvasViewModel.swift; sourceTree = "<group>"; };
 		DD2B3D4E5F6789A0B1C2D3E7 /* CanvasViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CanvasViewModelTests.swift; path = ViewModels/CanvasViewModelTests.swift; sourceTree = "<group>"; };
 		CC3D4E5F789A0B1C2D3E8F9 /* BeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeadCell.swift; path = Views/Components/BeadCell.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				55AABBCCDDEEFF0011223346 /* ColorPaletteBar.swift */,
 				66AABBCCDDEEFF0011223347 /* ToolBarView.swift */,
 				99AABBCCDDEEFF0011223350 /* ImageImportView.swift */,
+				99AABBCCDDEEFF0011223351 /* ConversionPreviewView.swift */,
+				22BBCCDDEEFF001122334B /* CanvasStore.swift */,
 				CC3D4E5F789A0B1C2D3E8F9 /* BeadCell.swift */,
 				DD4E5F789A0B1C2D3E8F01 /* PegboardBackground.swift */,
 				EE5F789A0B1C2D3E8F03 /* BeadGridView.swift */,
@@ -255,10 +261,12 @@
 				EE1A2B3D4E5F6789A0B1C2D5 /* CanvasViewModel.swift in Sources */,
 				77AABBCCDDEEFF0011223348 /* ColorPaletteBar.swift in Sources */,
 				88AABBCCDDEEFF0011223349 /* ToolBarView.swift in Sources */,
+				AA99AABBCCDDEEFF0011223351 /* ConversionPreviewView.swift in Sources */,
 				AA99AABBCCDDEEFF0011223350 /* ImageImportView.swift in Sources */,
 				BB3C4D5E6F789A0B1C2D3E8 /* BeadCell.swift in Sources */,
 				CC4D5E6F789A0B1C2D3E8F0 /* PegboardBackground.swift in Sources */,
 				DD5E6F789A0B1C2D3E8F02 /* BeadGridView.swift in Sources */,
+				11BBCCDDEEFF001122334A /* CanvasStore.swift in Sources */,
 				);
 				runOnlyForDeploymentPostprocessing = 0;
 			};
