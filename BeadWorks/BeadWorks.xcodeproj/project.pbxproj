@@ -23,6 +23,8 @@
 		FA0DBC7BBEF4404992531E75 /* ImageToBeadConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D90C772D47410DA27AEAC8 /* ImageToBeadConverterTests.swift */; };
 		CC1A2B3D4E5F6789A0B1C2D4 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1B2C3D4E5F6789A0B1C2D3 /* MainMenuView.swift */; };
 		DD2B3C4E5F6789A0B1C2D3E5 /* _Placeholders.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2C3D4E5F6789A0B1C2D3E4 /* _Placeholders.swift */; };
+		EE1A2B3D4E5F6789A0B1C2D5 /* CanvasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2B3D4E5F6789A0B1C2D3E6 /* CanvasViewModel.swift */; };
+		FF1A2B3D4E5F6789A0B1C2D6 /* CanvasViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2B3D4E5F6789A0B1C2D3E7 /* CanvasViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		75D90C772D47410DA27AEAC8 /* ImageToBeadConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageToBeadConverterTests.swift; path = Services/ImageToBeadConverterTests.swift; sourceTree = "<group>"; };
 		AA1B2C3D4E5F6789A0B1C2D3 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainMenuView.swift; path = Views/MainMenuView.swift; sourceTree = "<group>"; };
 		BB2C3D4E5F6789A0B1C2D3E4 /* _Placeholders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = _Placeholders.swift; path = Views/_Placeholders.swift; sourceTree = "<group>"; };
+		CC2B3D4E5F6789A0B1C2D3E6 /* CanvasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CanvasViewModel.swift; path = ViewModels/CanvasViewModel.swift; sourceTree = "<group>"; };
+		DD2B3D4E5F6789A0B1C2D3E7 /* CanvasViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CanvasViewModelTests.swift; path = ViewModels/CanvasViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 				D667F29C370A4599AB9EEFF2 /* ImageToBeadConverter.swift */,
 				AA1B2C3D4E5F6789A0B1C2D3 /* MainMenuView.swift */,
 				BB2C3D4E5F6789A0B1C2D3E4 /* _Placeholders.swift */,
+				CC2B3D4E5F6789A0B1C2D3E6 /* CanvasViewModel.swift */,
 			);
 			path = BeadWorks;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 				B2C1D3E4F5A64B2A9D8E7C6F /* CanvasStateTests.swift */,
 				B2C1D3E4F5A64B2A9D8E7C71 /* BeadPaletteRepositoryTests.swift */,
 				75D90C772D47410DA27AEAC8 /* ImageToBeadConverterTests.swift */,
+				DD2B3D4E5F6789A0B1C2D3E7 /* CanvasViewModelTests.swift */,
 			);
 			path = BeadWorksTests;
 			sourceTree = "<group>";
@@ -224,6 +230,7 @@
 				E8EB1E8F3F474888BA64BC5A /* ImageToBeadConverter.swift in Sources */,
 				CC1A2B3D4E5F6789A0B1C2D4 /* MainMenuView.swift in Sources */,
 				DD2B3C4E5F6789A0B1C2D3E5 /* _Placeholders.swift in Sources */,
+				EE1A2B3D4E5F6789A0B1C2D5 /* CanvasViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +242,7 @@
 				F1A2B3C4D5E64A1B8C3D4E63 /* CanvasStateTests.swift in Sources */,
 				F1A2B3C4D5E64A1B8C3D4E65 /* BeadPaletteRepositoryTests.swift in Sources */,
 				FA0DBC7BBEF4404992531E75 /* ImageToBeadConverterTests.swift in Sources */,
+				FF1A2B3D4E5F6789A0B1C2D6 /* CanvasViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
