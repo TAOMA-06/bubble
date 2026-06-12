@@ -19,6 +19,8 @@
 		F1A2B3C4D5E64A1B8C3D4E64 /* BeadPaletteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C1D3E4F5A64B2A9D8E7C70 /* BeadPaletteRepository.swift */; };
 		F1A2B3C4D5E64A1B8C3D4E65 /* BeadPaletteRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C1D3E4F5A64B2A9D8E7C71 /* BeadPaletteRepositoryTests.swift */; };
 		F1A2B3C4D5E64A1B8C3D4E66 /* bead_palette.json in Resources */ = {isa = PBXBuildFile; fileRef = B2C1D3E4F5A64B2A9D8E7C72 /* bead_palette.json */; };
+		E8EB1E8F3F474888BA64BC5A /* ImageToBeadConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D667F29C370A4599AB9EEFF2 /* ImageToBeadConverter.swift */; };
+		FA0DBC7BBEF4404992531E75 /* ImageToBeadConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D90C772D47410DA27AEAC8 /* ImageToBeadConverterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		B2C1D3E4F5A64B2A9D8E7C70 /* BeadPaletteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeadPaletteRepository.swift; path = Services/BeadPaletteRepository.swift; sourceTree = "<group>"; };
 		B2C1D3E4F5A64B2A9D8E7C71 /* BeadPaletteRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeadPaletteRepositoryTests.swift; path = Services/BeadPaletteRepositoryTests.swift; sourceTree = "<group>"; };
 		B2C1D3E4F5A64B2A9D8E7C72 /* bead_palette.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = bead_palette.json; path = Resources/bead_palette.json; sourceTree = "<group>"; };
+		D667F29C370A4599AB9EEFF2 /* ImageToBeadConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageToBeadConverter.swift; path = Services/ImageToBeadConverter.swift; sourceTree = "<group>"; };
+		75D90C772D47410DA27AEAC8 /* ImageToBeadConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageToBeadConverterTests.swift; path = Services/ImageToBeadConverterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 				B2C1D3E4F5A64B2A9D8E7C6D /* CanvasMode.swift */,
 				B2C1D3E4F5A64B2A9D8E7C6E /* CanvasState.swift */,
 				B2C1D3E4F5A64B2A9D8E7C70 /* BeadPaletteRepository.swift */,
+				D667F29C370A4599AB9EEFF2 /* ImageToBeadConverter.swift */,
 			);
 			path = BeadWorks;
 			sourceTree = "<group>";
@@ -106,6 +111,7 @@
 				0C64F82E89A347DFAFF134D3 /* BeadWorksTests.swift */,
 				B2C1D3E4F5A64B2A9D8E7C6F /* CanvasStateTests.swift */,
 				B2C1D3E4F5A64B2A9D8E7C71 /* BeadPaletteRepositoryTests.swift */,
+				75D90C772D47410DA27AEAC8 /* ImageToBeadConverterTests.swift */,
 			);
 			path = BeadWorksTests;
 			sourceTree = "<group>";
@@ -209,6 +215,7 @@
 				F1A2B3C4D5E64A1B8C3D4E61 /* CanvasMode.swift in Sources */,
 				F1A2B3C4D5E64A1B8C3D4E62 /* CanvasState.swift in Sources */,
 				F1A2B3C4D5E64A1B8C3D4E64 /* BeadPaletteRepository.swift in Sources */,
+				E8EB1E8F3F474888BA64BC5A /* ImageToBeadConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +226,7 @@
 				EADBE0CBD59A439AA5E89A63 /* BeadWorksTests.swift in Sources */,
 				F1A2B3C4D5E64A1B8C3D4E63 /* CanvasStateTests.swift in Sources */,
 				F1A2B3C4D5E64A1B8C3D4E65 /* BeadPaletteRepositoryTests.swift in Sources */,
+				FA0DBC7BBEF4404992531E75 /* ImageToBeadConverterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
