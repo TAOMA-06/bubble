@@ -16,6 +16,9 @@
 		F1A2B3C4D5E64A1B8C3D4E61 /* CanvasMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C1D3E4F5A64B2A9D8E7C6D /* CanvasMode.swift */; };
 		F1A2B3C4D5E64A1B8C3D4E62 /* CanvasState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C1D3E4F5A64B2A9D8E7C6E /* CanvasState.swift */; };
 		F1A2B3C4D5E64A1B8C3D4E63 /* CanvasStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C1D3E4F5A64B2A9D8E7C6F /* CanvasStateTests.swift */; };
+		F1A2B3C4D5E64A1B8C3D4E64 /* BeadPaletteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C1D3E4F5A64B2A9D8E7C70 /* BeadPaletteRepository.swift */; };
+		F1A2B3C4D5E64A1B8C3D4E65 /* BeadPaletteRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C1D3E4F5A64B2A9D8E7C71 /* BeadPaletteRepositoryTests.swift */; };
+		F1A2B3C4D5E64A1B8C3D4E66 /* bead_palette.json in Resources */ = {isa = PBXBuildFile; fileRef = B2C1D3E4F5A64B2A9D8E7C72 /* bead_palette.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		B2C1D3E4F5A64B2A9D8E7C6D /* CanvasMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CanvasMode.swift; path = Models/CanvasMode.swift; sourceTree = "<group>"; };
 		B2C1D3E4F5A64B2A9D8E7C6E /* CanvasState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CanvasState.swift; path = Models/CanvasState.swift; sourceTree = "<group>"; };
 		B2C1D3E4F5A64B2A9D8E7C6F /* CanvasStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CanvasStateTests.swift; path = Models/CanvasStateTests.swift; sourceTree = "<group>"; };
+		B2C1D3E4F5A64B2A9D8E7C70 /* BeadPaletteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeadPaletteRepository.swift; path = Services/BeadPaletteRepository.swift; sourceTree = "<group>"; };
+		B2C1D3E4F5A64B2A9D8E7C71 /* BeadPaletteRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeadPaletteRepositoryTests.swift; path = Services/BeadPaletteRepositoryTests.swift; sourceTree = "<group>"; };
+		B2C1D3E4F5A64B2A9D8E7C72 /* bead_palette.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = bead_palette.json; path = Resources/bead_palette.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,7 @@
 			children = (
 				42BCC7E327D3403CA50BDEED /* BeadWorks */,
 				CCC418E1143A48B88F5D2FC2 /* BeadWorksTests */,
+				B2C1D3E4F5A64B2A9D8E7C72 /* bead_palette.json */,
 				868700009D8D43CCBAFE99B0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,6 +95,7 @@
 				B2C1D3E4F5A64B2A9D8E7C6C /* BeadColor.swift */,
 				B2C1D3E4F5A64B2A9D8E7C6D /* CanvasMode.swift */,
 				B2C1D3E4F5A64B2A9D8E7C6E /* CanvasState.swift */,
+				B2C1D3E4F5A64B2A9D8E7C70 /* BeadPaletteRepository.swift */,
 			);
 			path = BeadWorks;
 			sourceTree = "<group>";
@@ -97,6 +105,7 @@
 			children = (
 				0C64F82E89A347DFAFF134D3 /* BeadWorksTests.swift */,
 				B2C1D3E4F5A64B2A9D8E7C6F /* CanvasStateTests.swift */,
+				B2C1D3E4F5A64B2A9D8E7C71 /* BeadPaletteRepositoryTests.swift */,
 			);
 			path = BeadWorksTests;
 			sourceTree = "<group>";
@@ -182,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AFE07AA59E148C0B433E869 /* Assets.xcassets in Resources */,
+				F1A2B3C4D5E64A1B8C3D4E66 /* bead_palette.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +208,7 @@
 				F1A2B3C4D5E64A1B8C3D4E60 /* BeadColor.swift in Sources */,
 				F1A2B3C4D5E64A1B8C3D4E61 /* CanvasMode.swift in Sources */,
 				F1A2B3C4D5E64A1B8C3D4E62 /* CanvasState.swift in Sources */,
+				F1A2B3C4D5E64A1B8C3D4E64 /* BeadPaletteRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +218,7 @@
 			files = (
 				EADBE0CBD59A439AA5E89A63 /* BeadWorksTests.swift in Sources */,
 				F1A2B3C4D5E64A1B8C3D4E63 /* CanvasStateTests.swift in Sources */,
+				F1A2B3C4D5E64A1B8C3D4E65 /* BeadPaletteRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
