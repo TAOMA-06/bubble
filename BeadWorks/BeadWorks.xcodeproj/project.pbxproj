@@ -11,6 +11,11 @@
 		A690E5DC03054BBA8910D547 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9CA6DA43A44DFCAA3B74D9 /* ContentView.swift */; };
 		9AFE07AA59E148C0B433E869 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E43399E049D44FF9984A2E0 /* Assets.xcassets */; };
 		EADBE0CBD59A439AA5E89A63 /* BeadWorksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C64F82E89A347DFAFF134D3 /* BeadWorksTests.swift */; };
+		F1A2B3C4D5E64A1B8C3D4E5F /* BeadSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C1D3E4F5A64B2A9D8E7C6B /* BeadSize.swift */; };
+		F1A2B3C4D5E64A1B8C3D4E60 /* BeadColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C1D3E4F5A64B2A9D8E7C6C /* BeadColor.swift */; };
+		F1A2B3C4D5E64A1B8C3D4E61 /* CanvasMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C1D3E4F5A64B2A9D8E7C6D /* CanvasMode.swift */; };
+		F1A2B3C4D5E64A1B8C3D4E62 /* CanvasState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C1D3E4F5A64B2A9D8E7C6E /* CanvasState.swift */; };
+		F1A2B3C4D5E64A1B8C3D4E63 /* CanvasStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C1D3E4F5A64B2A9D8E7C6F /* CanvasStateTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +35,11 @@
 		1A9CA6DA43A44DFCAA3B74D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8E43399E049D44FF9984A2E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C64F82E89A347DFAFF134D3 /* BeadWorksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeadWorksTests.swift; sourceTree = "<group>"; };
+		B2C1D3E4F5A64B2A9D8E7C6B /* BeadSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeadSize.swift; path = Models/BeadSize.swift; sourceTree = "<group>"; };
+		B2C1D3E4F5A64B2A9D8E7C6C /* BeadColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeadColor.swift; path = Models/BeadColor.swift; sourceTree = "<group>"; };
+		B2C1D3E4F5A64B2A9D8E7C6D /* CanvasMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CanvasMode.swift; path = Models/CanvasMode.swift; sourceTree = "<group>"; };
+		B2C1D3E4F5A64B2A9D8E7C6E /* CanvasState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CanvasState.swift; path = Models/CanvasState.swift; sourceTree = "<group>"; };
+		B2C1D3E4F5A64B2A9D8E7C6F /* CanvasStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CanvasStateTests.swift; path = Models/CanvasStateTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +84,10 @@
 				C8700F61594042D08B7B9D17 /* BeadWorksApp.swift */,
 				1A9CA6DA43A44DFCAA3B74D9 /* ContentView.swift */,
 				8E43399E049D44FF9984A2E0 /* Assets.xcassets */,
+				B2C1D3E4F5A64B2A9D8E7C6B /* BeadSize.swift */,
+				B2C1D3E4F5A64B2A9D8E7C6C /* BeadColor.swift */,
+				B2C1D3E4F5A64B2A9D8E7C6D /* CanvasMode.swift */,
+				B2C1D3E4F5A64B2A9D8E7C6E /* CanvasState.swift */,
 			);
 			path = BeadWorks;
 			sourceTree = "<group>";
@@ -82,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				0C64F82E89A347DFAFF134D3 /* BeadWorksTests.swift */,
+				B2C1D3E4F5A64B2A9D8E7C6F /* CanvasStateTests.swift */,
 			);
 			path = BeadWorksTests;
 			sourceTree = "<group>";
@@ -179,6 +194,10 @@
 			files = (
 				84F3230D8F5B4141A20FF2F3 /* BeadWorksApp.swift in Sources */,
 				A690E5DC03054BBA8910D547 /* ContentView.swift in Sources */,
+				F1A2B3C4D5E64A1B8C3D4E5F /* BeadSize.swift in Sources */,
+				F1A2B3C4D5E64A1B8C3D4E60 /* BeadColor.swift in Sources */,
+				F1A2B3C4D5E64A1B8C3D4E61 /* CanvasMode.swift in Sources */,
+				F1A2B3C4D5E64A1B8C3D4E62 /* CanvasState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EADBE0CBD59A439AA5E89A63 /* BeadWorksTests.swift in Sources */,
+				F1A2B3C4D5E64A1B8C3D4E63 /* CanvasStateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
