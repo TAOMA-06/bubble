@@ -34,20 +34,19 @@ struct ImageToBeadConverter {
     }
 
     private func averageColors(from cgImage: CGImage, gridWidth: Int, gridHeight: Int) -> [[String]] {
-        // 先缩小到目标网格尺寸，再读取每个格子的中心像素颜色作为代表
         let contextSize = CGSize(width: gridWidth, height: gridHeight)
-        UIGraphicsBeginImageContext(contextSize)
-        guard let context = UIGraphicsGetCurrentContext() else { return [] }
-        context.interpolationQuality = .medium
-        context.draw(cgImage, in: CGRect(origin: .zero, size: contextSize))
-        let resized = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+        let renderer = UIGraphicsImageRenderer(size: contextSize)
+        let resized = renderer.image { ctx in
+            ctx.cgContext.interpolationQuality = .medium
+            ctx.cgContext.draw(cgImage, in: CGRect(origin: .zero, size: contextSize))
+        }
 
-        guard let pixelData = resized?.cgImage?.dataProvider?.data,
+        guard let resizedCGImage = resized.cgImage,
+              let pixelData = resizedCGImage.dataProvider?.data,
               let data = CFDataGetBytePtr(pixelData) else { return [] }
 
         let bytesPerPixel = 4
-        let bytesPerRow = gridWidth * bytesPerPixel
+        let bytesPerRow = resizedCGImage.bytesPerRow
 
         var result: [[String]] = []
         for y in 0..<gridHeight {

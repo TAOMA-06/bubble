@@ -9,6 +9,7 @@ struct ConversionPreviewView: View {
     @State private var isConverting = false
     @State private var result: BeadConversionResult?
     @State private var showCanvas = false
+    @State private var conversionTask: Task<Void, Never>?
 
     var body: some View {
         Form {
@@ -54,7 +55,7 @@ struct ConversionPreviewView: View {
         .navigationTitle("转换参数")
         .navigationDestination(isPresented: $showCanvas) {
             if let result {
-                let palette = mode == .numbered ? result.colors : result.colors
+                let palette = result.colors
                 let state = CanvasState(
                     id: UUID(),
                     width: gridSize,
@@ -62,7 +63,7 @@ struct ConversionPreviewView: View {
                     beadSize: beadSize,
                     mode: mode,
                     colorPalette: palette,
-                    cells: result.indices.map { $0.map { $0 >= 0 ? $0 : nil } },
+                    cells: result.indices.map { $0.map { $0 } },
                     createdAt: Date(),
                     updatedAt: Date()
                 )
@@ -73,7 +74,8 @@ struct ConversionPreviewView: View {
 
     private func convert() {
         isConverting = true
-        DispatchQueue.global(qos: .userInitiated).async {
+        conversionTask?.cancel()
+        conversionTask = Task {
             let palette = BeadPaletteRepository.shared.defaultPalette()
             let conversion = ImageToBeadConverter().convert(
                 image: image,
@@ -82,7 +84,7 @@ struct ConversionPreviewView: View {
                 colorCount: colorCount,
                 palette: palette
             )
-            DispatchQueue.main.async {
+            await MainActor.run {
                 self.result = conversion
                 self.isConverting = false
                 self.showCanvas = true
@@ -90,3 +92,4 @@ struct ConversionPreviewView: View {
         }
     }
 }
+

@@ -19,9 +19,12 @@ actor CanvasStore {
 
     func loadAll() async throws -> [CanvasState] {
         let urls = try FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil)
-        return urls.compactMap { url -> CanvasState? in
-            guard let data = try? Data(contentsOf: url) else { return nil }
-            return try? JSONDecoder().decode(CanvasState.self, from: data)
+        var states: [CanvasState] = []
+        for url in urls {
+            let data = try Data(contentsOf: url)
+            let state = try JSONDecoder().decode(CanvasState.self, from: data)
+            states.append(state)
         }
+        return states
     }
 }

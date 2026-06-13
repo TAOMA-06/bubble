@@ -20,6 +20,9 @@ final class CanvasViewModel: ObservableObject {
         guard coordinate.row >= 0, coordinate.row < state.height,
               coordinate.col >= 0, coordinate.col < state.width else { return }
 
+        let currentIndex = state.colorIndex(at: coordinate)
+        guard currentIndex != selectedColorIndex else { return }
+
         var next = state
         next.setColorIndex(selectedColorIndex, at: coordinate)
         state = next
@@ -27,6 +30,12 @@ final class CanvasViewModel: ObservableObject {
     }
 
     func erase(at coordinate: (row: Int, col: Int)) {
+        guard coordinate.row >= 0, coordinate.row < state.height,
+              coordinate.col >= 0, coordinate.col < state.width else { return }
+
+        let currentIndex = state.colorIndex(at: coordinate)
+        guard currentIndex != nil else { return }
+
         var next = state
         next.setColorIndex(nil, at: coordinate)
         state = next
@@ -52,8 +61,8 @@ final class CanvasViewModel: ObservableObject {
         pushHistory()
     }
 
-    func finish() {
-        isFused = true
+    func reset() {
+        isFused = false
     }
 
     private func pushHistory() {

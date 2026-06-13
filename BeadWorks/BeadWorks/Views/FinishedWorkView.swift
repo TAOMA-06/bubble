@@ -22,7 +22,10 @@ struct FinishedWorkView: View {
                         )
 
                     BeadGridView(viewModel: viewModel)
-                        .frame(width: 200, height: 200)
+                        .frame(
+                            width: min(200, CGFloat(viewModel.state.width) * 28),
+                            height: min(200, CGFloat(viewModel.state.height) * 28)
+                        )
                 }
                 .padding(20)
             }
@@ -31,13 +34,17 @@ struct FinishedWorkView: View {
             HStack(spacing: 16) {
                 Button("保存") { saveToAlbum() }
                 Button("分享") { share() }
-                Button("再做一次") { viewModel.isFused = false }
+                Button("再做一次") { reset() }
             }
             .padding()
 
             Spacer()
         }
         .background(Color.black.opacity(0.4).ignoresSafeArea())
+    }
+
+    private func reset() {
+        viewModel.reset()
     }
 
     private func saveToAlbum() {
@@ -48,3 +55,4 @@ struct FinishedWorkView: View {
         // 后续实现：系统分享
     }
 }
+

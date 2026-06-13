@@ -3,7 +3,9 @@ import SwiftUI
 struct BeadGridView: View {
     @ObservedObject var viewModel: CanvasViewModel
     @State private var scale: CGFloat = 1.0
+    @State private var lastScale: CGFloat = 1.0
     @State private var offset: CGSize = .zero
+    @State private var lastOffset: CGSize = .zero
 
     var body: some View {
         let spacing: CGFloat = 2
@@ -24,43 +26,88 @@ struct BeadGridView: View {
                 )
                 .frame(width: totalWidth, height: totalHeight)
 
-                LazyVGrid(
-                    columns: Array(repeating: GridItem(.fixed(cellSize), spacing: spacing), count: viewModel.state.width),
-                    spacing: spacing
-                ) {
-                    ForEach(0..<viewModel.state.height, id: \.self) { row in
-                        ForEach(0..<viewModel.state.width, id: \.self) { col in
+                Canvas { context, size in
+                    for row in 0..<viewModel.state.height {
+                        for col in 0..<viewModel.state.width {
+                            let x = CGFloat(col) * (cellSize + spacing)
+                            let y = CGFloat(row) * (cellSize + spacing)
+                            let rect = CGRect(x: x, y: y, width: cellSize, height: cellSize)
                             let index = viewModel.state.colorIndex(at: (row, col))
-                            BeadCell(
-                                color: index.flatMap { viewModel.state.colorPalette[$0] },
-                                number: viewModel.state.mode == .numbered ? index.map { $0 + 1 } : nil,
-                                isFused: viewModel.isFused,
-                                size: cellSize
-                            )
-                            .onTapGesture {
-                                viewModel.applyColor(at: (row, col))
+                            let color = index.flatMap { viewModel.state.colorPalette[$0] }
+                            
+                            if let color {
+                                let path = RoundedRectangle(cornerRadius: cellSize * 0.18).path(in: rect)
+                                context.fill(path, with: .color(color.swiftUIColor))
+                                
+                                // Highlight overlay
+                                let highlightPath = RoundedRectangle(cornerRadius: cellSize * 0.18).path(in: rect)
+                                context.fill(highlightPath, with: .color(Color.white.opacity(0.35)))
+                                
+                                // Stroke
+                                context.stroke(path, with: .color(Color.black.opacity(0.08)), lineWidth: 0.5)
+                            } else {
+                                let path = RoundedRectangle(cornerRadius: cellSize * 0.18).path(in: rect)
+                                context.fill(path, with: .color(Color(.systemGray6)))
+                                
+                                // Peg hole
+                                let holeRect = CGRect(
+                                    x: x + cellSize * 0.375,
+                                    y: y + cellSize * 0.375,
+                                    width: cellSize * 0.25,
+                                    height: cellSize * 0.25
+                                )
+                                context.fill(Path(ellipseIn: holeRect), with: .color(Color(.systemGray4)))
+                            }
+                            
+                            if viewModel.state.mode == .numbered, let index {
+                                let text = Text("\(index + 1)")
+                                    .font(.system(size: cellSize * 0.4, weight: .medium))
+                                    .foregroundColor(color?.swiftUIColor.contrastText ?? .gray)
+                                context.draw(text, at: CGPoint(x: x + cellSize / 2, y: y + cellSize / 2))
                             }
                         }
                     }
                 }
                 .frame(width: totalWidth, height: totalHeight)
+                .contentShape(Rectangle())
+                .gesture(
+                    DragGesture(minimumDistance: 0)
+                        .onChanged { value in
+                            let col = Int((value.location.x - offset.width) / (cellSize + spacing))
+                            let row = Int((value.location.y - offset.height) / (cellSize + spacing))
+                            if row >= 0 && row < viewModel.state.height && col >= 0 && col < viewModel.state.width {
+                                viewModel.applyColor(at: (row, col))
+                            }
+                        }
+                )
             }
             .position(x: startX + totalWidth / 2, y: startY + totalHeight / 2)
             .gesture(
                 MagnificationGesture()
                     .onChanged { value in
-                        scale = max(0.5, min(4.0, value.magnitude))
+                        scale = max(0.5, min(4.0, lastScale * value.magnitude))
+                    }
+                    .onEnded { _ in
+                        lastScale = scale
                     }
             )
             .simultaneousGesture(
                 DragGesture()
                     .onChanged { value in
-                        offset = value.translation
+                        offset = CGSize(
+                            width: lastOffset.width + value.translation.width,
+                            height: lastOffset.height + value.translation.height
+                        )
+                    }
+                    .onEnded { _ in
+                        lastOffset = offset
                     }
             )
             .onTapGesture(count: 2) {
                 scale = 1.0
+                lastScale = 1.0
                 offset = .zero
+                lastOffset = .zero
             }
         }
     }

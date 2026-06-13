@@ -28,6 +28,7 @@ final class BeadPaletteRepository {
         guard let url = Bundle.main.url(forResource: "bead_palette", withExtension: "json"),
               let data = try? Data(contentsOf: url),
               let wrapper = try? JSONDecoder().decode(PaletteWrapper.self, from: data) else {
+            assertionFailure("Failed to load bead palette JSON — returning empty palette")
             return []
         }
         return wrapper.colors
@@ -40,11 +41,11 @@ private struct PaletteWrapper: Codable {
 
 extension BeadColor {
     func distance(to other: BeadColor) -> Double {
-        let c1 = Color(hex: hex).rgb
-        let c2 = Color(hex: other.hex).rgb
-        let dr = Double(c1.r - c2.r)
-        let dg = Double(c1.g - c2.g)
-        let db = Double(c1.b - c2.b)
+        let c1 = Color(hex: hex)?.rgb ?? RGB(r: 0, g: 0, b: 0)
+        let c2 = Color(hex: other.hex)?.rgb ?? RGB(r: 0, g: 0, b: 0)
+        let dr = c1.r - c2.r
+        let dg = c1.g - c2.g
+        let db = c1.b - c2.b
         return sqrt(dr * dr + dg * dg + db * db)
     }
 }

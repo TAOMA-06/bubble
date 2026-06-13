@@ -6,6 +6,8 @@ struct ImageImportView: View {
     @State private var selectedImage: UIImage?
     @State private var showPreview = false
 
+    @State private var loadTask: Task<Void, Never>?
+
     var body: some View {
         VStack(spacing: 20) {
             Text("选择一张图片生成拼豆底图")
@@ -29,10 +31,18 @@ struct ImageImportView: View {
         }
         .padding()
         .onChange(of: selectedItem) { _, newItem in
-            Task {
-                guard let data = try? await newItem?.loadTransferable(type: Data.self),
-                      let uiImage = UIImage(data: data) else { return }
-                selectedImage = uiImage
+            loadTask?.cancel()
+            loadTask = Task {
+                do {
+                    guard let item = newItem else { return }
+                    let data = try await item.loadTransferable(type: Data.self)
+                    guard let data, let uiImage = UIImage(data: data) else { return }
+                    await MainActor.run {
+                        selectedImage = uiImage
+                    }
+                } catch {
+                    // Silently ignore for now; could show error alert
+                }
             }
         }
         .sheet(isPresented: $showPreview) {
