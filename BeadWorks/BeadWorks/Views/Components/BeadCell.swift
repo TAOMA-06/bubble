@@ -51,10 +51,11 @@ struct BeadCell: View {
 
 extension Color {
     var contrastText: Color {
-        // 简单亮度判断
         let uiColor = UIColor(self)
         var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
-        uiColor.getRed(&r, green: &g, blue: &b, alpha: &a)
+        guard uiColor.getRed(&r, green: &g, blue: &b, alpha: &a) else {
+            return .black.opacity(0.7)
+        }
         let luminance = 0.299 * r + 0.587 * g + 0.114 * b
         return luminance > 0.6 ? Color.black.opacity(0.7) : Color.white.opacity(0.9)
     }

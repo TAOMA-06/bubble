@@ -50,9 +50,20 @@ struct MenuButtonStyle: ButtonStyle {
             .font(.headline)
             .frame(maxWidth: 240)
             .padding()
-            .background(Color.accentColor)
-            .foregroundColor(.white)
-            .cornerRadius(12)
+            .applyGlassEffect()
             .scaleEffect(configuration.isPressed ? 0.96 : 1)
+    }
+}
+
+extension View {
+    func applyGlassEffect() -> some View {
+        if #available(iOS 26.0, *) {
+            return self.buttonStyle(.glass)
+        } else {
+            return self
+                .background(Color.accentColor)
+                .foregroundColor(.white)
+                .cornerRadius(12)
+        }
     }
 }

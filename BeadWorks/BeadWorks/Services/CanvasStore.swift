@@ -8,7 +8,11 @@ actor CanvasStore {
     private init() {
         let docs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         directory = docs.appendingPathComponent("works", isDirectory: true)
-        try? FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        do {
+            try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        } catch {
+            assertionFailure("Failed to create works directory: \(error)")
+        }
     }
 
     func save(_ state: CanvasState) async throws {

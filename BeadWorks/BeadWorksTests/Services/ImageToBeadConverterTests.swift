@@ -5,11 +5,11 @@ import UIKit
 final class ImageToBeadConverterTests: XCTestCase {
     func testConvertToGrid() throws {
         let size = CGSize(width: 100, height: 100)
-        UIGraphicsBeginImageContext(size)
-        UIColor.red.setFill()
-        UIRectFill(CGRect(origin: .zero, size: size))
-        let image = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let image = renderer.image { ctx in
+            UIColor.red.setFill()
+            ctx.fill(CGRect(origin: .zero, size: size))
+        }
 
         let converter = ImageToBeadConverter()
         let palette = [

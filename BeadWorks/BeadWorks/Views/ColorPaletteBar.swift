@@ -25,10 +25,22 @@ struct ColorPaletteBar: View {
                             }
                         }
                     }
+                    .buttonStyle(.plain)
+                    .applyGlassEffectCircle()
                 }
             }
             .padding(.horizontal)
             .padding(.vertical, 8)
+        }
+    }
+}
+
+extension View {
+    func applyGlassEffectCircle() -> some View {
+        if #available(iOS 26.0, *) {
+            return self.buttonStyle(.glass)
+        } else {
+            return self
         }
     }
 }

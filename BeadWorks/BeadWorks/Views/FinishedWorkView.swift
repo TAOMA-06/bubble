@@ -32,9 +32,9 @@ struct FinishedWorkView: View {
             .frame(width: 260, height: 280)
 
             HStack(spacing: 16) {
-                Button("保存") { saveToAlbum() }
-                Button("分享") { share() }
-                Button("再做一次") { reset() }
+                glassButton("保存") { saveToAlbum() }
+                glassButton("分享") { share() }
+                glassButton("再做一次") { reset() }
             }
             .padding()
 
@@ -43,8 +43,25 @@ struct FinishedWorkView: View {
         .background(Color.black.opacity(0.4).ignoresSafeArea())
     }
 
+    @ViewBuilder
+    private func glassButton(_ title: String, action: @escaping () -> Void) -> some View {
+        if #available(iOS 26.0, *) {
+            Button(title, action: action)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 10)
+                .buttonStyle(.glass)
+        } else {
+            Button(title, action: action)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 10)
+                .background(Color.accentColor)
+                .foregroundColor(.white)
+                .cornerRadius(8)
+        }
+    }
+
     private func reset() {
-        viewModel.reset()
+        viewModel.isFused = false
     }
 
     private func saveToAlbum() {
@@ -55,4 +72,3 @@ struct FinishedWorkView: View {
         // 后续实现：系统分享
     }
 }
-

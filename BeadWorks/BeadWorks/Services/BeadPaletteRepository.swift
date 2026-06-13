@@ -25,13 +25,18 @@ final class BeadPaletteRepository {
     }
 
     private static func loadPalette() -> [BeadColor] {
-        guard let url = Bundle.main.url(forResource: "bead_palette", withExtension: "json"),
-              let data = try? Data(contentsOf: url),
-              let wrapper = try? JSONDecoder().decode(PaletteWrapper.self, from: data) else {
-            assertionFailure("Failed to load bead palette JSON — returning empty palette")
+        guard let url = Bundle.main.url(forResource: "bead_palette", withExtension: "json") else {
+            assertionFailure("bead_palette.json not found in bundle")
             return []
         }
-        return wrapper.colors
+        do {
+            let data = try Data(contentsOf: url)
+            let wrapper = try JSONDecoder().decode(PaletteWrapper.self, from: data)
+            return wrapper.colors
+        } catch {
+            assertionFailure("Failed to decode bead palette: \(error)")
+            return []
+        }
     }
 }
 

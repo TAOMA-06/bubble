@@ -65,6 +65,10 @@ final class CanvasViewModel: ObservableObject {
         isFused = false
     }
 
+    func finish() {
+        isFused = true
+    }
+
     private func pushHistory() {
         if historyIndex < history.count - 1 {
             history.removeSubrange((historyIndex + 1)...)

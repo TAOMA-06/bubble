@@ -13,13 +13,22 @@ struct ImageImportView: View {
             Text("选择一张图片生成拼豆底图")
                 .font(.headline)
 
-            PhotosPicker(selection: $selectedItem, matching: .images) {
-                Label("从相册选择", systemImage: "photo")
-                    .font(.headline)
-                    .padding()
-                    .background(Color.accentColor)
-                    .foregroundColor(.white)
-                    .cornerRadius(12)
+            if #available(iOS 26.0, *) {
+                PhotosPicker(selection: $selectedItem, matching: .images) {
+                    Label("从相册选择", systemImage: "photo")
+                        .font(.headline)
+                        .padding()
+                }
+                .buttonStyle(.glass)
+            } else {
+                PhotosPicker(selection: $selectedItem, matching: .images) {
+                    Label("从相册选择", systemImage: "photo")
+                        .font(.headline)
+                        .padding()
+                        .background(Color.accentColor)
+                        .foregroundColor(.white)
+                        .cornerRadius(12)
+                }
             }
 
             if selectedImage != nil {
@@ -41,7 +50,9 @@ struct ImageImportView: View {
                         selectedImage = uiImage
                     }
                 } catch {
-                    // Silently ignore for now; could show error alert
+                    if !(error is CancellationError) {
+                        print("Failed to load image: \(error)")
+                    }
                 }
             }
         }
