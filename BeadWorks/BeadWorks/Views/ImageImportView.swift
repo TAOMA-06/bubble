@@ -9,36 +9,49 @@ struct ImageImportView: View {
     @State private var loadTask: Task<Void, Never>?
 
     var body: some View {
-        VStack(spacing: 20) {
-            Text("选择一张图片生成拼豆底图")
-                .font(.headline)
-
-            if #available(iOS 26.0, *) {
-                PhotosPicker(selection: $selectedItem, matching: .images) {
-                    Label("从相册选择", systemImage: "photo")
-                        .font(.headline)
-                        .padding()
-                }
-                .buttonStyle(.glass)
-            } else {
-                PhotosPicker(selection: $selectedItem, matching: .images) {
-                    Label("从相册选择", systemImage: "photo")
-                        .font(.headline)
-                        .padding()
-                        .background(Color.accentColor)
-                        .foregroundColor(.white)
-                        .cornerRadius(12)
-                }
+        VStack(spacing: 32) {
+            Spacer()
+            
+            VStack(spacing: 16) {
+                Image(systemName: "photo.fill")
+                    .font(.system(size: 48, weight: .medium))
+                    .foregroundStyle(BeadWorksColor.accentGreen)
+                
+                Text("选择一张图片生成拼豆底图")
+                    .font(BeadWorksFont.headline())
+                    .foregroundStyle(BeadWorksColor.textPrimary)
+                
+                Text("从相册选择图片，转换为拼豆图案")
+                    .font(BeadWorksFont.body())
+                    .foregroundStyle(BeadWorksColor.textSecondary)
             }
-
+            
+            PhotosPicker(selection: $selectedItem, matching: .images) {
+                Label("从相册选择", systemImage: "photo")
+                    .font(BeadWorksFont.button())
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 4)
+            }
+            .controlSize(.large)
+            .buttonBorderShape(.capsule)
+            .tint(BeadWorksColor.accentGreen)
+            .buttonStyle(.glassProminent)
+            .padding(.horizontal, 24)
+            
             if selectedImage != nil {
-                Button("下一步：调整参数") {
+                BeadWorksButton(
+                    title: "下一步：调整参数",
+                    icon: "arrow.right",
+                    style: .primary
+                ) {
                     showPreview = true
                 }
-                .buttonStyle(MenuButtonStyle())
+                .padding(.horizontal, 24)
             }
+            
+            Spacer()
         }
-        .padding()
+        .background(BeadWorksColor.background)
         .onChange(of: selectedItem) { _, newItem in
             loadTask?.cancel()
             loadTask = Task {

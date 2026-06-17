@@ -5,63 +5,39 @@ struct ToolBarView: View {
     var onFinish: () -> Void
 
     var body: some View {
-        HStack(spacing: 16) {
-            if #available(iOS 26.0, *) {
-                Button("撤销", action: viewModel.undo)
-                    .fontWeight(.regular)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
-                    .buttonStyle(.glass)
+        BeadWorksGlassToolbar {
+            HStack(spacing: 12) {
+                BeadWorksGlassButton(
+                    title: "撤销",
+                    icon: "arrow.uturn.backward",
+                    action: viewModel.undo
+                )
                 
-                Button("重做", action: viewModel.redo)
-                    .fontWeight(.regular)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
-                    .buttonStyle(.glass)
+                BeadWorksGlassButton(
+                    title: "重做",
+                    icon: "arrow.uturn.forward",
+                    action: viewModel.redo
+                )
                 
-                Button("清空", action: viewModel.clear)
-                    .fontWeight(.regular)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
-                    .buttonStyle(.glass)
+                BeadWorksGlassButton(
+                    title: "清空",
+                    icon: "trash",
+                    action: viewModel.clear
+                )
+
+                BeadWorksGlassButton(
+                    title: viewModel.isPanMode ? "移动" : "绘制",
+                    icon: viewModel.isPanMode ? "hand.draw" : "paintbrush.pointed",
+                    isSelected: viewModel.isPanMode,
+                    action: { viewModel.isPanMode.toggle() }
+                )
                 
-                Button("完成", action: onFinish)
-                    .fontWeight(.bold)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
-                    .buttonStyle(.glassProminent)
-            } else {
-                Button("撤销", action: viewModel.undo)
-                    .fontWeight(.regular)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
-                    .background(Color.accentColor)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
-                
-                Button("重做", action: viewModel.redo)
-                    .fontWeight(.regular)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
-                    .background(Color.accentColor)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
-                
-                Button("清空", action: viewModel.clear)
-                    .fontWeight(.regular)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
-                    .background(Color.accentColor)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
-                
-                Button("完成", action: onFinish)
-                    .fontWeight(.bold)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
-                    .background(Color.accentColor)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
+                BeadWorksToolbarButton(
+                    title: "完成",
+                    icon: "checkmark.circle.fill",
+                    isPrimary: true,
+                    action: onFinish
+                )
             }
         }
         .padding()

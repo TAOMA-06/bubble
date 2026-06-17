@@ -4,7 +4,7 @@ import SwiftUI
 struct BeadWorksApp: App {
     var body: some Scene {
         WindowGroup {
-            MainMenuView()
+            ContentView()
         }
     }
 }

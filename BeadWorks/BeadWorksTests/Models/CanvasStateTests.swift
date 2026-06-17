@@ -14,7 +14,7 @@ final class CanvasStateTests: XCTestCase {
             beadSize: .standard,
             mode: .free,
             colorPalette: palette,
-            cells: Array(repeating: Array(repeating: nil, count: 4), count: 4),
+            cells: [UInt8](repeating: 0, count: 16),
             createdAt: Date(),
             updatedAt: Date()
         )

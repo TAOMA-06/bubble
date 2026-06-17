@@ -34,6 +34,15 @@
 		CC4D5E6F789A0B1C2D3E8F0 /* PegboardBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E5F789A0B1C2D3E8F01 /* PegboardBackground.swift */; };
 		DD5E6F789A0B1C2D3E8F02 /* BeadGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F789A0B1C2D3E8F03 /* BeadGridView.swift */; };
 		11BBCCDDEEFF001122334A /* CanvasStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BBCCDDEEFF001122334B /* CanvasStore.swift */; };
+		DE51B000000000000000B001 /* BeadWorksButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE51A000000000000000B001 /* BeadWorksButton.swift */; };
+		DE51B000000000000000B002 /* BeadWorksCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE51A000000000000000B002 /* BeadWorksCard.swift */; };
+		DE51B000000000000000B003 /* BeadWorksColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE51A000000000000000B003 /* BeadWorksColors.swift */; };
+		DE51B000000000000000B004 /* BeadWorksGlassToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE51A000000000000000B004 /* BeadWorksGlassToolbar.swift */; };
+		BB1100000000000000000001 /* AccessoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1100000000000000000001 /* AccessoryType.swift */; };
+		BB1100000000000000000002 /* IroningAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1100000000000000000002 /* IroningAnimationView.swift */; };
+		BB1100000000000000000003 /* AccessoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1100000000000000000003 /* AccessoryPickerView.swift */; };
+		BB1100000000000000000004 /* AccessoryAttachAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1100000000000000000004 /* AccessoryAttachAnimation.swift */; };
+		BB1100000000000000000005 /* FreeCreationSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1100000000000000000005 /* FreeCreationSetupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +85,15 @@
 		CC3D4E5F789A0B1C2D3E8F9 /* BeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeadCell.swift; path = Views/Components/BeadCell.swift; sourceTree = "<group>"; };
 		DD4E5F789A0B1C2D3E8F01 /* PegboardBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PegboardBackground.swift; path = Views/Components/PegboardBackground.swift; sourceTree = "<group>"; };
 		EE5F789A0B1C2D3E8F03 /* BeadGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeadGridView.swift; path = Views/BeadGridView.swift; sourceTree = "<group>"; };
+		DE51A000000000000000B001 /* BeadWorksButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeadWorksButton.swift; path = DesignSystem/BeadWorksButton.swift; sourceTree = "<group>"; };
+		DE51A000000000000000B002 /* BeadWorksCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeadWorksCard.swift; path = DesignSystem/BeadWorksCard.swift; sourceTree = "<group>"; };
+		DE51A000000000000000B003 /* BeadWorksColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeadWorksColors.swift; path = DesignSystem/BeadWorksColors.swift; sourceTree = "<group>"; };
+		DE51A000000000000000B004 /* BeadWorksGlassToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeadWorksGlassToolbar.swift; path = DesignSystem/BeadWorksGlassToolbar.swift; sourceTree = "<group>"; };
+		AA1100000000000000000001 /* AccessoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccessoryType.swift; path = Models/AccessoryType.swift; sourceTree = "<group>"; };
+		AA1100000000000000000002 /* IroningAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IroningAnimationView.swift; path = Views/IroningAnimationView.swift; sourceTree = "<group>"; };
+		AA1100000000000000000003 /* AccessoryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccessoryPickerView.swift; path = Views/AccessoryPickerView.swift; sourceTree = "<group>"; };
+		AA1100000000000000000004 /* AccessoryAttachAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccessoryAttachAnimation.swift; path = Views/AccessoryAttachAnimation.swift; sourceTree = "<group>"; };
+		AA1100000000000000000005 /* FreeCreationSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FreeCreationSetupView.swift; path = Views/FreeCreationSetupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +157,15 @@
 				CC3D4E5F789A0B1C2D3E8F9 /* BeadCell.swift */,
 				DD4E5F789A0B1C2D3E8F01 /* PegboardBackground.swift */,
 				EE5F789A0B1C2D3E8F03 /* BeadGridView.swift */,
+				DE51A000000000000000B003 /* BeadWorksColors.swift */,
+				DE51A000000000000000B001 /* BeadWorksButton.swift */,
+				DE51A000000000000000B002 /* BeadWorksCard.swift */,
+				DE51A000000000000000B004 /* BeadWorksGlassToolbar.swift */,
+				AA1100000000000000000001 /* AccessoryType.swift */,
+				AA1100000000000000000002 /* IroningAnimationView.swift */,
+				AA1100000000000000000003 /* AccessoryPickerView.swift */,
+				AA1100000000000000000004 /* AccessoryAttachAnimation.swift */,
+				AA1100000000000000000005 /* FreeCreationSetupView.swift */,
 			);
 			path = BeadWorks;
 			sourceTree = "<group>";
@@ -267,7 +294,16 @@
 				CC4D5E6F789A0B1C2D3E8F0 /* PegboardBackground.swift in Sources */,
 				DD5E6F789A0B1C2D3E8F02 /* BeadGridView.swift in Sources */,
 				11BBCCDDEEFF001122334A /* CanvasStore.swift in Sources */,
-				);
+				DE51B000000000000000B003 /* BeadWorksColors.swift in Sources */,
+				DE51B000000000000000B001 /* BeadWorksButton.swift in Sources */,
+				DE51B000000000000000B002 /* BeadWorksCard.swift in Sources */,
+				DE51B000000000000000B004 /* BeadWorksGlassToolbar.swift in Sources */,
+				BB1100000000000000000001 /* AccessoryType.swift in Sources */,
+				BB1100000000000000000002 /* IroningAnimationView.swift in Sources */,
+				BB1100000000000000000003 /* AccessoryPickerView.swift in Sources */,
+				BB1100000000000000000004 /* AccessoryAttachAnimation.swift in Sources */,
+				BB1100000000000000000005 /* FreeCreationSetupView.swift in Sources */,
+			);
 				runOnlyForDeploymentPostprocessing = 0;
 			};
 		2BCE8168D438498F9540A6D1 /* Sources */ = {
@@ -345,7 +381,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LOCALIZATION_PREFERS_STRINGS_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -402,7 +438,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LOCALIZATION_PREFERS_STRINGS_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -427,7 +463,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,7 +492,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -477,7 +513,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -500,7 +536,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

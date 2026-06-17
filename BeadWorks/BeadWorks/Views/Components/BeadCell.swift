@@ -9,26 +9,83 @@ struct BeadCell: View {
     var body: some View {
         ZStack {
             if let color {
-                RoundedRectangle(cornerRadius: size * 0.18)
+                // 1. 底部阴影（最底层）
+                Ellipse()
+                    .fill(Color.black.opacity(0.2))
+                    .frame(width: size * 0.85, height: size * 0.15)
+                    .offset(y: size * 0.35)
+                    .blur(radius: size * 0.05)
+
+                // 2. 边缘厚度层
+                Circle()
+                    .fill(color.swiftUIColor.opacity(0.8))
+                    .frame(width: size * 0.88, height: size * 0.88)
+
+                // 3. 表面层
+                Circle()
                     .fill(color.swiftUIColor)
+                    .frame(width: size * 0.82, height: size * 0.82)
                     .overlay(
-                        RoundedRectangle(cornerRadius: size * 0.18)
-                            .fill(LinearGradient(
-                                gradient: Gradient(colors: [Color.white.opacity(0.35), Color.clear]),
-                                startPoint: .top,
-                                endPoint: .bottom
-                            ))
+                        // 主高光（左上角）
+                        RadialGradient(
+                            colors: [Color.white.opacity(0.6), Color.clear],
+                            center: .init(x: 0.3, y: 0.25),
+                            startRadius: 0,
+                            endRadius: size * 0.35
+                        )
                     )
                     .overlay(
-                        RoundedRectangle(cornerRadius: size * 0.18)
-                            .stroke(Color.black.opacity(0.08), lineWidth: 0.5)
+                        // 次高光（右下角微弱反光）
+                        RadialGradient(
+                            colors: [Color.white.opacity(0.15), Color.clear],
+                            center: .init(x: 0.7, y: 0.75),
+                            startRadius: 0,
+                            endRadius: size * 0.25
+                        )
                     )
-                    .shadow(
-                        color: Color.black.opacity(isFused ? 0.05 : 0.12),
-                        radius: isFused ? 1 : 2,
-                        x: 0,
-                        y: isFused ? 0.5 : 1
+
+                // 4. 中心孔洞（带倒角）
+                Circle()
+                    .fill(
+                        RadialGradient(
+                            colors: [
+                                Color.black.opacity(0.9),
+                                Color.black.opacity(0.7),
+                                Color.gray.opacity(0.5)
+                            ],
+                            center: .center,
+                            startRadius: 0,
+                            endRadius: size * 0.14
+                        )
                     )
+                    .frame(width: size * 0.28, height: size * 0.28)
+                    .overlay(
+                        // 孔洞边缘倒角
+                        Circle()
+                            .stroke(
+                                LinearGradient(
+                                    colors: [Color.white.opacity(0.3), Color.clear],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                ),
+                                lineWidth: size * 0.02
+                            )
+                    )
+
+                // 5. 外边缘描边
+                Circle()
+                    .stroke(
+                        LinearGradient(
+                            colors: [
+                                color.swiftUIColor.opacity(0.6),
+                                color.swiftUIColor.opacity(0.9)
+                            ],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        ),
+                        lineWidth: size * 0.04
+                    )
+                    .frame(width: size * 0.88, height: size * 0.88)
             } else {
                 RoundedRectangle(cornerRadius: size * 0.18)
                     .fill(Color(.systemGray6))

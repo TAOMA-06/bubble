@@ -16,31 +16,22 @@ struct ColorPaletteBar: View {
                                 .frame(width: 44, height: 44)
                                 .overlay(
                                     Circle()
-                                        .stroke(viewModel.selectedColorIndex == index ? Color.primary : Color.clear, lineWidth: 3)
+                                        .stroke(viewModel.selectedColorIndex == index ? BeadWorksColor.textPrimary : Color.clear, lineWidth: 3)
                                 )
+                                .shadow(color: .black.opacity(0.1), radius: 2, x: 0, y: 1)
+                            
                             if viewModel.state.mode == .numbered {
                                 Text("\(index + 1)")
-                                    .font(.caption.bold())
+                                    .font(BeadWorksFont.caption(.bold))
                                     .foregroundColor(color.swiftUIColor.contrastText)
                             }
                         }
                     }
                     .buttonStyle(.plain)
-                    .applyGlassEffectCircle()
                 }
             }
             .padding(.horizontal)
-            .padding(.vertical, 8)
-        }
-    }
-}
-
-extension View {
-    func applyGlassEffectCircle() -> some View {
-        if #available(iOS 26.0, *) {
-            return self.buttonStyle(.glass)
-        } else {
-            return self
+            .padding(.vertical, 12)
         }
     }
 }

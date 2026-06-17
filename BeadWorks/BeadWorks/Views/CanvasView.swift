@@ -6,20 +6,58 @@ struct CanvasView: View {
     var body: some View {
         VStack(spacing: 0) {
             ColorPaletteBar(viewModel: viewModel)
-                .background(Color(.systemBackground))
 
             BeadGridView(viewModel: viewModel)
-                .background(Color(.systemGray5))
-
-            ToolBarView(viewModel: viewModel, onFinish: { viewModel.finish() })
-                .background(Color(.systemBackground))
+                .background(BeadWorksColor.canvasBackground)
         }
-        .overlay {
-            if viewModel.isFused {
-                FinishedWorkView(viewModel: viewModel)
-                    .transition(.opacity.combined(with: .scale))
+        .background(BeadWorksColor.background)
+        .overlay(alignment: .bottom) {
+            if viewModel.ironingPhase == .idle {
+                ToolBarView(viewModel: viewModel, onFinish: { viewModel.finish() })
             }
         }
-        .animation(.easeInOut(duration: 0.4), value: viewModel.isFused)
+        .overlay {
+            switch viewModel.ironingPhase {
+            case .ironing:
+                Color.black.opacity(0.15).ignoresSafeArea()
+                    .overlay {
+                        IroningAnimationView(isComplete: .init(
+                            get: { false },
+                            set: { if $0 { viewModel.onIroningComplete() } }
+                        ))
+                    }
+                    .transition(.opacity)
+
+            case .choosingAccessory:
+                Color.black.opacity(0.3).ignoresSafeArea()
+                    .overlay {
+                        AccessoryPickerView { accessory in
+                            viewModel.selectAccessory(accessory)
+                        }
+                    }
+                    .transition(.opacity)
+
+            case .attaching(let accessory):
+                Color.black.opacity(0.15).ignoresSafeArea()
+                    .overlay {
+                        AccessoryAttachAnimation(
+                            accessory: accessory,
+                            isComplete: .init(
+                                get: { false },
+                                set: { if $0 { viewModel.onAttachComplete() } }
+                            )
+                        )
+                    }
+                    .transition(.opacity)
+
+            case .done:
+                FinishedWorkView(viewModel: viewModel)
+                    .transition(.opacity.combined(with: .scale))
+
+            case .idle:
+                EmptyView()
+            }
+        }
+        .animation(.easeInOut(duration: 0.4), value: viewModel.ironingPhase)
     }
 }

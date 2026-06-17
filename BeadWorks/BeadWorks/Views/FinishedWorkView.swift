@@ -4,64 +4,81 @@ struct FinishedWorkView: View {
     @ObservedObject var viewModel: CanvasViewModel
 
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: 24) {
             Spacer()
 
-            ZStack {
-                RoundedRectangle(cornerRadius: 24)
-                    .fill(Color.white)
-                    .shadow(color: Color.black.opacity(0.12), radius: 16, x: 0, y: 8)
+            BeadWorksCard {
+                VStack(spacing: 16) {
+                    // 挂件图标
+                    if let accessory = viewModel.selectedAccessory {
+                        Image(systemName: accessory.iconName)
+                            .font(.system(size: 28))
+                            .foregroundStyle(BeadWorksColor.accent)
+                            .transition(.scale.combined(with: .opacity))
+                    }
 
-                VStack(spacing: 12) {
-                    Circle()
-                        .fill(Color.gray.opacity(0.4))
-                        .frame(width: 16, height: 16)
-                        .overlay(
-                            Circle()
-                                .stroke(Color.gray, lineWidth: 2)
-                        )
-
+                    // 作品展示
                     BeadGridView(viewModel: viewModel)
                         .frame(
                             width: min(200, CGFloat(viewModel.state.width) * 28),
                             height: min(200, CGFloat(viewModel.state.height) * 28)
                         )
+                        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                    
+                    // 作品信息
+                    VStack(spacing: 4) {
+                        Text("作品完成！")
+                            .font(BeadWorksFont.headline())
+                            .foregroundStyle(BeadWorksColor.textPrimary)
+                        
+                        Text("\(viewModel.state.width) × \(viewModel.state.height) 拼豆")
+                            .font(BeadWorksFont.caption())
+                            .foregroundStyle(BeadWorksColor.textSecondary)
+                    }
                 }
-                .padding(20)
             }
-            .frame(width: 260, height: 280)
-
+            .frame(width: 280)
+            
+            // 操作按钮
             HStack(spacing: 16) {
-                glassButton("保存") { saveToAlbum() }
-                glassButton("分享") { share() }
-                glassButton("再做一次") { reset() }
+                BeadWorksButton(
+                    title: "保存",
+                    icon: "square.and.arrow.down",
+                    style: .secondary
+                ) {
+                    saveToAlbum()
+                }
+                
+                BeadWorksButton(
+                    title: "分享",
+                    icon: "square.and.arrow.up",
+                    style: .accent
+                ) {
+                    share()
+                }
             }
-            .padding()
-
+            .padding(.horizontal, 24)
+            
+            BeadWorksButton(
+                title: "再做一次",
+                icon: "arrow.counterclockwise",
+                style: .primary
+            ) {
+                reset()
+            }
+            .padding(.horizontal, 24)
+            
             Spacer()
         }
-        .background(Color.black.opacity(0.4).ignoresSafeArea())
-    }
-
-    @ViewBuilder
-    private func glassButton(_ title: String, action: @escaping () -> Void) -> some View {
-        if #available(iOS 26.0, *) {
-            Button(title, action: action)
-                .padding(.horizontal, 20)
-                .padding(.vertical, 10)
-                .buttonStyle(.glass)
-        } else {
-            Button(title, action: action)
-                .padding(.horizontal, 20)
-                .padding(.vertical, 10)
-                .background(Color.accentColor)
-                .foregroundColor(.white)
-                .cornerRadius(8)
-        }
+        .background(
+            BeadWorksColor.background
+                .opacity(0.95)
+                .ignoresSafeArea()
+        )
     }
 
     private func reset() {
-        viewModel.isFused = false
+        viewModel.reset()
     }
 
     private func saveToAlbum() {
