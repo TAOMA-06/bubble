@@ -1,0 +1,12 @@
+{
+  "colors": [
+    { "id": 0, "displayName": "Black", "hex": "#1A1A1A", "roughness": 0.42, "rarity": "common" },
+    { "id": 1, "displayName": "White", "hex": "#F5F5F5", "roughness": 0.28, "rarity": "common" },
+    { "id": 2, "displayName": "Red", "hex": "#E53935", "roughness": 0.35, "rarity": "common" },
+    { "id": 3, "displayName": "Blue", "hex": "#1E88E5", "roughness": 0.33, "rarity": "common" },
+    { "id": 4, "displayName": "Yellow", "hex": "#FDD835", "roughness": 0.30, "rarity": "common" },
+    { "id": 5, "displayName": "Green", "hex": "#43A047", "roughness": 0.34, "rarity": "common" },
+    { "id": 6, "displayName": "Orange", "hex": "#FB8C00", "roughness": 0.32, "rarity": "common" },
+    { "id": 7, "displayName": "Purple", "hex": "#8E24AA", "roughness": 0.36, "rarity": "common" }
+  ]
+}
