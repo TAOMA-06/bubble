@@ -7,7 +7,7 @@
 ```
 bubble/
 ├── BeadWorksUnity/     # 游戏源码（Unity 工程，唯一运行时）
-├── docs/               # 设计与计划文档（历史参考）
+├── docs/               # 设计与计划文档（当前以 Unity 版本为准）
 └── README.md
 ```
 
@@ -44,3 +44,5 @@ cd BeadWorksUnity
 ## 历史说明
 
 早期曾用 SwiftUI 实现一版 MVP，已移除。当前以 `BeadWorksUnity/` 为唯一游戏代码来源。
+
+设计文档已同步更新为 Unity 实现（见 `docs/compose/specs/2026-06-12-perler-bead-game-design.md`）。
