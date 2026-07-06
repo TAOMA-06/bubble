@@ -1,8 +1,16 @@
 .compose/
 .codegraph/
-*.xcodeproj/xcuserdata/
-*.xcodeproj/project.xcworkspace/xcuserdata/
+DerivedData/
+
+# Unity（BeadWorksUnity 内 .gitignore 已覆盖 Library/ 等，此处补充根级）
+BeadWorksUnity/Library/
+BeadWorksUnity/Logs/
+BeadWorksUnity/Temp/
+BeadWorksUnity/UserSettings/
+BeadWorksUnity/Builds/
+BeadWorksUnity/obj/
+
+# Xcode（Unity 导出工程本地状态）
 **/*.xcodeproj/xcuserdata/
 **/*.xcodeproj/project.xcworkspace/xcuserdata/
-DerivedData/
-build/
+*.xcworkspace/xcuserdata/

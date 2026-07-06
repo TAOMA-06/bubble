@@ -1,11 +1,12 @@
 # BeadWorksUnity
 
-拼豆手游 vertical slice 的 Unity 基础工程（URP + C#），与同级目录 `BeadWorks/` SwiftUI 项目独立共存。
+拼豆手游 **Unity 工程**（URP + C#），包含完整 vertical slice：主菜单、自由创作、图纸复刻、工作台、熨烫、成品、作品库与分享。
 
 ## 要求
 
-- Unity **2022.3 LTS**（或兼容的 2022.3.x）
+- Unity **6000.5.2f1**（或 Hub 中与本仓库 `ProjectSettings/ProjectVersion.txt` 一致的版本）
 - 首次打开会自动拉取 URP、TextMeshPro 等包
+- iOS 导出需安装 **iOS Build Support** 模块
 
 ## 快速开始
 
@@ -15,6 +16,16 @@
 4. 点击 Play
 
 若场景引用异常，可在菜单执行 **BeadWorks → Setup Workshop Scene** 重新生成场景。
+
+## iOS 模拟器 / Xcode
+
+```bash
+./build-ios-simulator.sh
+```
+
+或 Unity 菜单：**BeadWorks → Build → iOS Simulator Xcode Project**
+
+详见 [README-iOS-Simulator.md](README-iOS-Simulator.md)。
 
 ## 完整闭环（Vertical Slice）
 
@@ -79,6 +90,7 @@ Assets/
     Tools/          Tweezers, Eraser, Iron
     Ironing/        IroningSystem
     Presentation/   BeadFactory, PatternGuide, FinishedWorkPresenter
+    Editor/         场景搭建、iOS 模拟器导出
   Data/             bead_palette.json
   Prefabs/          UI 按钮
   Materials/        URP 材质
@@ -112,5 +124,5 @@ Assets/
 ## 移动端
 
 - 默认竖屏（1080×1920 参考分辨率）
-- iOS / Android 包名：`com.beadworks.unity`
+- iOS Bundle ID：`com.beadworks.unity`
 - Quality 使用 Mobile 配置 + URP

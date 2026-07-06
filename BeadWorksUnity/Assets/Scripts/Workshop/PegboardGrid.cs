@@ -54,7 +54,7 @@ namespace BeadWorks.Workshop
             {
                 if (view != null)
                 {
-                    Object.Destroy(view.gameObject);
+                    UnityEngine.Object.Destroy(view.gameObject);
                 }
             }
 
@@ -188,7 +188,7 @@ namespace BeadWorks.Workshop
 
             if (_beadViews.TryGetValue(cell, out var view) && view != null)
             {
-                Object.Destroy(view.gameObject);
+                UnityEngine.Object.Destroy(view.gameObject);
             }
 
             _beadViews.Remove(cell);

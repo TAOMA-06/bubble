@@ -62,12 +62,12 @@ namespace BeadWorks.UI
                 }
             }
 
-            if (Input.GetKeyDown(_toggleFpsKey))
+            if (UnityEngine.Input.GetKeyDown(_toggleFpsKey))
             {
                 ShowFps = !ShowFps;
             }
 
-            if (Input.GetKeyDown(_togglePanelKey))
+            if (UnityEngine.Input.GetKeyDown(_togglePanelKey))
             {
                 if (_panel != null)
                 {
