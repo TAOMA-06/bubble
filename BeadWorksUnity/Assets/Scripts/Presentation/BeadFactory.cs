@@ -51,7 +51,11 @@ namespace BeadWorks.Presentation
 
             var material = new Material(_beadMaterial);
             material.SetColor("_BaseColor", color.Color);
-            material.SetFloat("_Smoothness", color.Smoothness);
+            // Boost the smoothness floor and add a touch of metallic so beads read as
+            // glossy fused plastic instead of a flat matte disc, even for the more matte
+            // palette entries (higher roughness).
+            material.SetFloat("_Smoothness", Mathf.Lerp(0.55f, 0.95f, color.Smoothness));
+            material.SetFloat("_Metallic", 0.05f);
             return material;
         }
 

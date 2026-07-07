@@ -40,10 +40,10 @@ Multi-context repo (presence of `CONTEXT-MAP.md` at the root):
 
 ## Current layout for this repo (single-context)
 
-- Current design spec: `docs/compose/specs/2026-06-12-perler-bead-game-design.md`（已更新为 Unity 版本，与代码一致）。
+- Current design spec: `docs/compose/specs/2026-06-12-perler-bead-game-design.md`（Unity 版本描述较完整的游戏愿景；原生 iOS 版本是同一主线的轻量首版实现，尚未有独立 spec 文档）。
 - Planning history: `docs/compose/plans/2026-06-12-perler-bead-game-plan.md`（已标记为废弃）。
 - No `CONTEXT.md` or `docs/adr/` yet (proceed silently if referenced).
-- The main implementation is in `BeadWorksUnity/` (Unity C# game project).
+- Current lightweight delivery track: `BeadWorksNative/` (native SwiftUI iOS project, primary track). Unity implementation `BeadWorksUnity/` (Unity C# game project) is paused but kept in the repo.
 
 ## Use the glossary's vocabulary
 

@@ -84,7 +84,7 @@ namespace BeadWorks.UI
             rect.sizeDelta = new Vector2(920, 120);
 
             var bg = row.AddComponent<Image>();
-            bg.color = new Color(0.14f, 0.16f, 0.2f, 0.9f);
+            BeadWorksUiTheme.ApplyRounded(bg, BeadWorksUiTheme.PanelSurface);
 
             var button = row.AddComponent<Button>();
             button.targetGraphic = bg;
@@ -121,11 +121,6 @@ namespace BeadWorks.UI
             }
 
             _panel = UiBuilder.CreatePanel(canvas, "PatternSelectPanel", Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
-            var bg = _panel.GetComponent<Image>();
-            if (bg != null)
-            {
-                bg.color = new Color(0.08f, 0.09f, 0.12f, 0.96f);
-            }
 
             _headerLabel = UiBuilder.CreateLabel(_panel.transform, "Header", new Vector2(0, 780), 40, "选择图纸");
             _backButton = UiBuilder.CreateButton(_panel.transform, "Back", new Vector2(0, -780), new Vector2(280, 64), "返回");

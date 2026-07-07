@@ -22,6 +22,7 @@ namespace BeadWorks.Core
         private IroningUIController _ironingUi;
         private MainMenuUIController _mainMenu;
         private PatternSelectUIController _patternSelect;
+        private ImageImportUIController _imageImportUi;
         private PatternGuideUIController _patternGuideUi;
         private GalleryUIController _galleryUi;
         private FinishedWorkViewerUIController _finishedViewerUi;
@@ -69,6 +70,8 @@ namespace BeadWorks.Core
             _workshopRoot = workshopRoot;
             _pegboardRoot = pegboardRoot;
 
+            SetWorkshopVisible(false);
+
             _patternRepository = new PatternRepository();
             _patternRepository.LoadBuiltins();
             _galleryRepository = new GalleryRepository();
@@ -84,46 +87,44 @@ namespace BeadWorks.Core
         private void EnsureUiComponents(WorkshopUIController workshopUi)
         {
             var canvas = workshopUi != null ? workshopUi.gameObject : gameObject;
-
-            _mainMenu = canvas.GetComponent<MainMenuUIController>();
-            if (_mainMenu == null)
+            if (canvas.GetComponent<RectTransform>() == null)
             {
-                _mainMenu = canvas.AddComponent<MainMenuUIController>();
+                throw new InvalidOperationException(
+                    $"Cannot initialize BeadWorks UI: '{canvas.name}' has no RectTransform.");
             }
 
-            _patternSelect = canvas.GetComponent<PatternSelectUIController>();
-            if (_patternSelect == null)
-            {
-                _patternSelect = canvas.AddComponent<PatternSelectUIController>();
-            }
-
-            _patternGuideUi = canvas.GetComponent<PatternGuideUIController>();
-            if (_patternGuideUi == null)
-            {
-                _patternGuideUi = canvas.AddComponent<PatternGuideUIController>();
-            }
-
-            _galleryUi = canvas.GetComponent<GalleryUIController>();
-            if (_galleryUi == null)
-            {
-                _galleryUi = canvas.AddComponent<GalleryUIController>();
-            }
+            _mainMenu = EnsureUiComponent<MainMenuUIController>(canvas);
+            _patternSelect = EnsureUiComponent<PatternSelectUIController>(canvas);
+            _imageImportUi = EnsureUiComponent<ImageImportUIController>(canvas);
+            _patternGuideUi = EnsureUiComponent<PatternGuideUIController>(canvas);
+            _galleryUi = EnsureUiComponent<GalleryUIController>(canvas);
 
             _galleryUi.Bind(_galleryRepository);
 
-            _finishedViewerUi = canvas.GetComponent<FinishedWorkViewerUIController>();
-            if (_finishedViewerUi == null)
+            _finishedViewerUi = EnsureUiComponent<FinishedWorkViewerUIController>(canvas);
+
+            if (DebugOverlayController.IsAvailable)
             {
-                _finishedViewerUi = canvas.AddComponent<FinishedWorkViewerUIController>();
+                _debugOverlay = EnsureUiComponent<DebugOverlayController>(canvas);
+                _debugOverlay.Bind(_workshop);
+            }
+        }
+
+        private static T EnsureUiComponent<T>(GameObject canvas) where T : Component
+        {
+            var component = canvas.GetComponent<T>();
+            if (component == null)
+            {
+                component = canvas.AddComponent<T>();
             }
 
-            _debugOverlay = canvas.GetComponent<DebugOverlayController>();
-            if (_debugOverlay == null)
+            if (component == null)
             {
-                _debugOverlay = canvas.AddComponent<DebugOverlayController>();
+                throw new InvalidOperationException(
+                    $"Cannot initialize BeadWorks UI: failed to create {typeof(T).Name} on '{canvas.name}'.");
             }
 
-            _debugOverlay.Bind(_workshop);
+            return component;
         }
 
         private void EnsurePresenters(Transform pegboardRoot, Camera mainCamera)
@@ -147,10 +148,14 @@ namespace BeadWorks.Core
         {
             _mainMenu.FreeCreateRequested += OnFreeCreate;
             _mainMenu.PatternReplicateRequested += OnPatternReplicate;
+            _mainMenu.ImageImportRequested += () => NavigateTo(AppScreen.ImageImport);
             _mainMenu.GalleryRequested += () => NavigateTo(AppScreen.Gallery);
 
             _patternSelect.BackRequested += () => NavigateTo(AppScreen.MainMenu);
             _patternSelect.PatternSelected += OnPatternChosen;
+
+            _imageImportUi.BackRequested += () => NavigateTo(AppScreen.MainMenu);
+            _imageImportUi.PatternConfirmed += OnImportedPatternConfirmed;
 
             _patternGuideUi.GuideVisibilityChanged += v => _patternGuide?.SetGuideVisible(v);
             _patternGuideUi.ErrorHintsChanged += OnErrorHintsChanged;
@@ -185,6 +190,11 @@ namespace BeadWorks.Core
                 _patternSelect.PatternSelected -= OnPatternChosen;
             }
 
+            if (_imageImportUi != null)
+            {
+                _imageImportUi.PatternConfirmed -= OnImportedPatternConfirmed;
+            }
+
             if (_workshop != null)
             {
                 _workshop.BeadPlaced -= OnBeadPlaced;
@@ -208,20 +218,15 @@ namespace BeadWorks.Core
                     _mainMenu.Show();
                     SetWorkshopVisible(false);
                     _finishedPresenter?.Hide();
-                    if (_pegboardRoot != null)
-                    {
-                        _pegboardRoot.gameObject.SetActive(true);
-                    }
-
-                    if (_workbenchBackground != null)
-                    {
-                        _workbenchBackground.gameObject.SetActive(true);
-                    }
-
                     break;
 
                 case AppScreen.PatternSelect:
                     _patternSelect.Show(_patternRepository.Patterns, _palette);
+                    SetWorkshopVisible(false);
+                    break;
+
+                case AppScreen.ImageImport:
+                    _imageImportUi.Show(_palette);
                     SetWorkshopVisible(false);
                     break;
 
@@ -266,6 +271,7 @@ namespace BeadWorks.Core
         {
             _mainMenu?.Hide();
             _patternSelect?.Hide();
+            _imageImportUi?.Hide();
             _patternGuideUi?.Hide();
             _galleryUi?.Hide();
             _finishedViewerUi?.Hide();
@@ -279,15 +285,20 @@ namespace BeadWorks.Core
                 _workshopRoot.gameObject.SetActive(visible);
             }
 
-            if (visible && _pegboardRoot != null)
+            if (_pegboardRoot != null)
             {
-                _pegboardRoot.gameObject.SetActive(true);
+                _pegboardRoot.gameObject.SetActive(visible);
+            }
+
+            if (_workbenchBackground != null)
+            {
+                _workbenchBackground.gameObject.SetActive(visible);
             }
         }
 
-        private void OnFreeCreate()
+        private void OnFreeCreate(int gridSize)
         {
-            _session = WorkshopSession.FreeCreate();
+            _session = WorkshopSession.FreeCreate(gridSize);
             StartWorkshop();
         }
 
@@ -302,10 +313,24 @@ namespace BeadWorks.Core
             StartWorkshop();
         }
 
+        private void OnImportedPatternConfirmed(BeadPatternData pattern, string sourceLabel)
+        {
+            _session = WorkshopSession.FromImportedPattern(pattern, sourceLabel);
+            StartWorkshop();
+        }
+
         private void StartWorkshop()
         {
             _workshop.ConfigureSession(_session, _palette, _pegboardPresenter, _workbenchBackground, _patternGuide);
-            _cameraController?.FocusOnPegboard();
+            if (_workshop.Grid != null)
+            {
+                _cameraController?.FocusOnPegboard(_workshop.GridSize, _workshop.Grid.CellSize);
+            }
+            else
+            {
+                _cameraController?.FocusOnPegboard();
+            }
+
             NavigateTo(AppScreen.Workshop);
         }
 
@@ -395,8 +420,13 @@ namespace BeadWorks.Core
                 _completedAt,
                 _productType);
 
-            _shareCapture.ShareNative(png, _session?.Title);
-            _finishedViewerUi.SetShareStatus($"已保存: {_shareCapture.LastSavedPath}");
+            _finishedViewerUi.SetShareStatus("正在保存到相册…");
+            _shareCapture.ShareNative(this, png, _session?.Title, (success, error) =>
+            {
+                _finishedViewerUi.SetShareStatus(success
+                    ? $"已保存: {_shareCapture.LastSavedPath}"
+                    : $"保存到相册失败：{error}（已保留在应用内 {_shareCapture.LastSavedPath}）");
+            });
         }
 
         private void OnSaveRequested()

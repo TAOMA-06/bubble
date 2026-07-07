@@ -46,6 +46,7 @@ namespace BeadWorks.UI
             if (_panel != null)
             {
                 _panel.SetActive(true);
+                StartCoroutine(UiBuilder.PopInRoutine(_panel.GetComponent<RectTransform>()));
             }
 
             if (_titleLabel != null)
@@ -96,9 +97,7 @@ namespace BeadWorks.UI
             var image = button.GetComponent<Image>();
             if (image != null)
             {
-                image.color = selected
-                    ? new Color(0.22f, 0.52f, 0.82f)
-                    : new Color(0.18f, 0.2f, 0.24f);
+                image.color = selected ? BeadWorksUiTheme.ChipSelected : BeadWorksUiTheme.ChipUnselected;
             }
         }
 
@@ -125,13 +124,13 @@ namespace BeadWorks.UI
             var bg = _panel.GetComponent<Image>();
             if (bg != null)
             {
-                bg.color = new Color(0.08f, 0.09f, 0.12f, 0.88f);
+                bg.color = new Color(BeadWorksUiTheme.PanelSurface.r, BeadWorksUiTheme.PanelSurface.g, BeadWorksUiTheme.PanelSurface.b, 0.94f);
             }
 
             _titleLabel = UiBuilder.CreateLabel(_panel.transform, "Title", new Vector2(0, 250), 30, "成品");
             _metaLabel = UiBuilder.CreateLabel(_panel.transform, "Meta", new Vector2(0, 210), 20, string.Empty);
             _hintLabel = UiBuilder.CreateLabel(_panel.transform, "Hint", new Vector2(0, 40), 18, "拖动旋转 · 双指缩放");
-            _hintLabel.color = new Color(0.7f, 0.72f, 0.75f);
+            _hintLabel.color = BeadWorksUiTheme.TextMuted;
 
             _magnetButton = UiBuilder.CreateButton(_panel.transform, "Magnet", new Vector2(-280, 150), new Vector2(180, 52), "冰箱贴");
             _keychainButton = UiBuilder.CreateButton(_panel.transform, "Keychain", new Vector2(-80, 150), new Vector2(180, 52), "钥匙扣");

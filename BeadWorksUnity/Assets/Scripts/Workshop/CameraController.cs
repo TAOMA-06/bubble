@@ -10,9 +10,10 @@ namespace BeadWorks.Workshop
     {
         [SerializeField] private Transform _pegboardTarget;
         [SerializeField] private float _minOrthographicSize = 3f;
-        [SerializeField] private float _maxOrthographicSize = 12f;
+        [SerializeField] private float _maxOrthographicSize = 18f;
         [SerializeField] private float _zoomSpeed = 0.01f;
         [SerializeField] private float _defaultOrthographicSize = 6f;
+        [SerializeField] private float _framingMargin = 1.08f;
 
         private Camera _camera;
         private Vector3 _dragOriginWorld;
@@ -102,6 +103,20 @@ namespace BeadWorks.Workshop
 
         public void FocusOnPegboard()
         {
+            FocusOnPegboardInternal(null, null);
+        }
+
+        /// <summary>
+        /// Frames the pegboard so a square board of <paramref name="gridSize"/> cells
+        /// (each <paramref name="cellSize"/> world units) fits on screen regardless of aspect ratio.
+        /// </summary>
+        public void FocusOnPegboard(int gridSize, float cellSize)
+        {
+            FocusOnPegboardInternal(gridSize, cellSize);
+        }
+
+        private void FocusOnPegboardInternal(int? gridSize, float? cellSize)
+        {
             if (_pegboardTarget == null)
             {
                 return;
@@ -109,7 +124,21 @@ namespace BeadWorks.Workshop
 
             var target = _pegboardTarget.position;
             transform.position = new Vector3(target.x, target.y, target.z - 10f);
-            _camera.orthographicSize = _defaultOrthographicSize;
+            _camera.orthographicSize = ComputeFrameOrthographicSize(gridSize, cellSize);
+        }
+
+        private float ComputeFrameOrthographicSize(int? gridSize, float? cellSize)
+        {
+            if (!gridSize.HasValue || !cellSize.HasValue || gridSize.Value <= 0 || cellSize.Value <= 0f)
+            {
+                return _defaultOrthographicSize;
+            }
+
+            var boardHalfExtent = gridSize.Value * cellSize.Value * 0.5f;
+            var aspect = _camera != null && _camera.aspect > 0f ? _camera.aspect : 1f;
+            // Board is square: the narrower screen dimension determines the binding constraint.
+            var requiredSize = boardHalfExtent * Mathf.Max(1f, 1f / aspect) * _framingMargin;
+            return Mathf.Clamp(requiredSize, _minOrthographicSize, _maxOrthographicSize);
         }
 
         private void OnPointerDown(Vector2 screenPosition)

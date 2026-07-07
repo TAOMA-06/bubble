@@ -56,6 +56,42 @@ namespace BeadWorks.Data
             return Colors.FirstOrDefault(c => c.id == id) ?? Colors.FirstOrDefault();
         }
 
+        /// <summary>
+        /// Returns the palette color closest to <paramref name="target"/> by RGB distance.
+        /// Used by <see cref="PhotoToPatternConverter"/> to quantize imported photos onto
+        /// the existing bead palette (no palette expansion).
+        /// </summary>
+        public BeadColorData FindNearestColor(Color target)
+        {
+            var colors = Colors;
+            if (colors.Length == 0)
+            {
+                return null;
+            }
+
+            var closest = colors[0];
+            var closestDistance = ColorDistanceSquared(target, closest.Color);
+            for (var i = 1; i < colors.Length; i++)
+            {
+                var distance = ColorDistanceSquared(target, colors[i].Color);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closest = colors[i];
+                }
+            }
+
+            return closest;
+        }
+
+        private static float ColorDistanceSquared(Color a, Color b)
+        {
+            var dr = a.r - b.r;
+            var dg = a.g - b.g;
+            var db = a.b - b.b;
+            return (dr * dr) + (dg * dg) + (db * db);
+        }
+
         private static BeadPaletteJson CreateFallbackPalette()
         {
             return new BeadPaletteJson

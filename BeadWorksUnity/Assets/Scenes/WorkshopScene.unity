@@ -299,8 +299,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _holeMaterial: {fileID: 2100000, guid: d4e5f60718293a4b5c6d7e8f90123456, type: 2}
   _beadMaterial: {fileID: 2100000, guid: e5f60718293a4b5c6d7e8f9012345678, type: 2}
-  _boardColor: {r: 0.72, g: 0.74, b: 0.76, a: 1}
-  _holeColor: {r: 0.58, g: 0.6, b: 0.63, a: 1}
+  _boardColor: {r: 0.86, g: 0.68, b: 0.48, a: 1}
+  _holeColor: {r: 0.32, g: 0.24, b: 0.17, a: 1}
 --- !u!1 &300001
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,10 +408,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pegboardTarget: {fileID: 210002}
   _minOrthographicSize: 3
-  _maxOrthographicSize: 12
+  _maxOrthographicSize: 30
   _zoomSpeed: 0.01
   _panSpeed: 0.01
   _defaultOrthographicSize: 6
+  _framingMargin: 1.12
 --- !u!1 &400001
 GameObject:
   m_ObjectHideFlags: 0

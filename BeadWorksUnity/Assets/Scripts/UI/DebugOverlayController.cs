@@ -24,6 +24,8 @@ namespace BeadWorks.UI
         private int _frameCount;
         private float _currentFps;
 
+        public static bool IsAvailable => Application.isEditor || Debug.isDebugBuild;
+
         public bool ShowFps
         {
             get => _showFps;
@@ -44,11 +46,23 @@ namespace BeadWorks.UI
 
         private void Awake()
         {
+            if (!IsAvailable)
+            {
+                enabled = false;
+                return;
+            }
+
             BuildUi();
         }
 
         private void Update()
         {
+            if (!IsAvailable)
+            {
+                enabled = false;
+                return;
+            }
+
             _frameCount++;
             _fpsTimer += Time.unscaledDeltaTime;
             if (_fpsTimer >= 0.5f)
@@ -128,6 +142,11 @@ namespace BeadWorks.UI
 
         private void AppendLog(string message)
         {
+            if (!IsAvailable)
+            {
+                return;
+            }
+
             _log.Insert(0, message + "\n");
             if (_log.Length > 400)
             {

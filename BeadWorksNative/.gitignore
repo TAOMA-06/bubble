@@ -1,0 +1,11 @@
+# Xcode
+build/
+DerivedData/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+*.xcworkspace/xcuserdata/
+*.xcresult
+
+# macOS
+.DS_Store

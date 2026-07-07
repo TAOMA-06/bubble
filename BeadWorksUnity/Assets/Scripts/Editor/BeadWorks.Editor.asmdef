@@ -3,7 +3,8 @@
     "rootNamespace": "BeadWorks.Editor",
     "references": [
         "BeadWorks",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "UnityEditor.iOS.Extensions.Xcode"
     ],
     "includePlatforms": [
         "Editor"

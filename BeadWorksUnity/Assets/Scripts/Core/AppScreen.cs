@@ -4,6 +4,7 @@ namespace BeadWorks.Core
     {
         MainMenu,
         PatternSelect,
+        ImageImport,
         Workshop,
         Gallery,
         FinishedViewer

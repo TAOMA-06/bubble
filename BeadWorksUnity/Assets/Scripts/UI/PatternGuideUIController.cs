@@ -87,7 +87,7 @@ namespace BeadWorks.UI
             var bg = _panel.GetComponent<Image>();
             if (bg != null)
             {
-                bg.color = new Color(0.1f, 0.11f, 0.14f, 0.75f);
+                bg.color = new Color(BeadWorksUiTheme.PanelSurface.r, BeadWorksUiTheme.PanelSurface.g, BeadWorksUiTheme.PanelSurface.b, 0.82f);
             }
 
             _progressLabel = UiBuilder.CreateLabel(_panel.transform, "Progress", new Vector2(0, 0), 20, "图纸模式");
@@ -121,7 +121,7 @@ namespace BeadWorks.UI
             bgRect.offsetMin = Vector2.zero;
             bgRect.offsetMax = Vector2.zero;
             var bgImage = bg.AddComponent<Image>();
-            bgImage.color = new Color(0.2f, 0.22f, 0.26f);
+            BeadWorksUiTheme.ApplyRounded(bgImage, BeadWorksUiTheme.ChipUnselected);
 
             var check = new GameObject("Checkmark");
             check.transform.SetParent(bg.transform, false);
@@ -132,7 +132,7 @@ namespace BeadWorks.UI
             checkRect.anchoredPosition = new Vector2(6, 0);
             checkRect.sizeDelta = new Vector2(24, 24);
             var checkImage = check.AddComponent<Image>();
-            checkImage.color = new Color(0.3f, 0.75f, 0.45f);
+            BeadWorksUiTheme.ApplyRounded(checkImage, BeadWorksUiTheme.ChipSelected);
 
             toggle.targetGraphic = bgImage;
             toggle.graphic = checkImage;
@@ -147,7 +147,7 @@ namespace BeadWorks.UI
             var tmp = labelGo.AddComponent<TextMeshProUGUI>();
             tmp.text = label;
             tmp.fontSize = 18;
-            tmp.color = Color.white;
+            tmp.color = BeadWorksUiTheme.TextPrimary;
             tmp.alignment = TextAlignmentOptions.Left;
 
             return toggle;

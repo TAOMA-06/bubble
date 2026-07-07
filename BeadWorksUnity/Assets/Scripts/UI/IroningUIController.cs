@@ -107,6 +107,7 @@ namespace BeadWorks.UI
             if (_resultPanel != null)
             {
                 _resultPanel.SetActive(true);
+                StartCoroutine(UiBuilder.PopInRoutine(_resultPanel.GetComponent<RectTransform>()));
             }
 
             if (_resultTitle != null)
@@ -126,6 +127,7 @@ namespace BeadWorks.UI
             if (_showcasePanel != null)
             {
                 _showcasePanel.SetActive(true);
+                StartCoroutine(UiBuilder.PopInRoutine(_showcasePanel.GetComponent<RectTransform>()));
             }
 
             if (_showcaseTitle != null)
@@ -172,137 +174,23 @@ namespace BeadWorks.UI
                 return;
             }
 
-            _ironingPanel = CreatePanel(canvas, "IroningPanel", new Vector2(0.5f, 0f), new Vector2(0, 260), new Vector2(920, 180));
-            _progressSlider = CreateSlider(_ironingPanel.transform, new Vector2(0, 48), new Vector2(820, 28));
-            _progressLabel = CreateLabel(_ironingPanel.transform, "ProgressLabel", new Vector2(0, 92), 22, "熨烫进度 0%");
-            _temperatureLabel = CreateLabel(_ironingPanel.transform, "TemperatureLabel", new Vector2(-180, 20), 20, "温度 0%");
-            _riskLabel = CreateLabel(_ironingPanel.transform, "RiskLabel", new Vector2(120, 20), 20, "拖动熨斗均匀加热");
-            _finishButton = CreateButton(_ironingPanel.transform, "FinishButton", new Vector2(0, -52), new Vector2(260, 52), "完成熨烫");
+            var ironingPanelGo = UiBuilder.CreatePanel(canvas, "IroningPanel", new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0, 260), new Vector2(920, 180));
+            _ironingPanel = ironingPanelGo;
+            _progressSlider = UiBuilder.CreateSlider(_ironingPanel.transform, new Vector2(0, 48), new Vector2(820, 28));
+            _progressLabel = UiBuilder.CreateLabel(_ironingPanel.transform, "ProgressLabel", new Vector2(0, 92), 22, "熨烫进度 0%");
+            _temperatureLabel = UiBuilder.CreateLabel(_ironingPanel.transform, "TemperatureLabel", new Vector2(-180, 20), 20, "温度 0%");
+            _riskLabel = UiBuilder.CreateLabel(_ironingPanel.transform, "RiskLabel", new Vector2(120, 20), 20, "拖动熨斗均匀加热");
+            _finishButton = UiBuilder.CreateButton(_ironingPanel.transform, "FinishButton", new Vector2(0, -52), new Vector2(260, 52), "完成熨烫");
 
-            _resultPanel = CreatePanel(canvas, "IroningResultPanel", new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(760, 420));
-            _resultTitle = CreateLabel(_resultPanel.transform, "ResultTitle", new Vector2(0, 100), 34, "结果");
-            _resultDetail = CreateLabel(_resultPanel.transform, "ResultDetail", new Vector2(0, 20), 22, string.Empty);
-            _retryButton = CreateButton(_resultPanel.transform, "RetryButton", new Vector2(-150, -120), new Vector2(240, 56), "重新熨烫");
-            _showcaseButton = CreateButton(_resultPanel.transform, "ShowcaseButton", new Vector2(150, -120), new Vector2(240, 56), "查看成品");
+            _resultPanel = UiBuilder.CreatePanel(canvas, "IroningResultPanel", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(760, 420));
+            _resultTitle = UiBuilder.CreateLabel(_resultPanel.transform, "ResultTitle", new Vector2(0, 100), 34, "结果");
+            _resultDetail = UiBuilder.CreateLabel(_resultPanel.transform, "ResultDetail", new Vector2(0, 20), 22, string.Empty);
+            _retryButton = UiBuilder.CreateButton(_resultPanel.transform, "RetryButton", new Vector2(-150, -120), new Vector2(240, 56), "重新熨烫");
+            _showcaseButton = UiBuilder.CreateButton(_resultPanel.transform, "ShowcaseButton", new Vector2(150, -120), new Vector2(240, 56), "查看成品");
 
-            _showcasePanel = CreatePanel(canvas, "ShowcasePanel", new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(760, 320));
-            _showcaseTitle = CreateLabel(_showcasePanel.transform, "ShowcaseTitle", new Vector2(0, 60), 32, "成品展示");
-            _backToWorkshopButton = CreateButton(_showcasePanel.transform, "BackButton", new Vector2(0, -80), new Vector2(280, 56), "返回工作台");
-        }
-
-        private static GameObject CreatePanel(Transform parent, string name, Vector2 anchor, Vector2 position, Vector2 size)
-        {
-            var go = new GameObject(name);
-            go.transform.SetParent(parent, false);
-            var rect = go.AddComponent<RectTransform>();
-            rect.anchorMin = anchor;
-            rect.anchorMax = anchor;
-            rect.pivot = new Vector2(0.5f, 0.5f);
-            rect.anchoredPosition = position;
-            rect.sizeDelta = size;
-
-            var image = go.AddComponent<Image>();
-            image.color = new Color(0.08f, 0.09f, 0.11f, 0.82f);
-            return go;
-        }
-
-        private static Slider CreateSlider(Transform parent, Vector2 position, Vector2 size)
-        {
-            var go = new GameObject("ProgressSlider");
-            go.transform.SetParent(parent, false);
-            var rect = go.AddComponent<RectTransform>();
-            rect.anchorMin = new Vector2(0.5f, 0.5f);
-            rect.anchorMax = new Vector2(0.5f, 0.5f);
-            rect.pivot = new Vector2(0.5f, 0.5f);
-            rect.anchoredPosition = position;
-            rect.sizeDelta = size;
-
-            var background = new GameObject("Background");
-            background.transform.SetParent(go.transform, false);
-            var bgRect = background.AddComponent<RectTransform>();
-            bgRect.anchorMin = Vector2.zero;
-            bgRect.anchorMax = Vector2.one;
-            bgRect.offsetMin = Vector2.zero;
-            bgRect.offsetMax = Vector2.zero;
-            var bgImage = background.AddComponent<Image>();
-            bgImage.color = new Color(0.2f, 0.22f, 0.25f);
-
-            var fillArea = new GameObject("Fill Area");
-            fillArea.transform.SetParent(go.transform, false);
-            var fillAreaRect = fillArea.AddComponent<RectTransform>();
-            fillAreaRect.anchorMin = Vector2.zero;
-            fillAreaRect.anchorMax = Vector2.one;
-            fillAreaRect.offsetMin = new Vector2(8, 8);
-            fillAreaRect.offsetMax = new Vector2(-8, -8);
-
-            var fill = new GameObject("Fill");
-            fill.transform.SetParent(fillArea.transform, false);
-            var fillRect = fill.AddComponent<RectTransform>();
-            fillRect.anchorMin = Vector2.zero;
-            fillRect.anchorMax = Vector2.one;
-            fillRect.offsetMin = Vector2.zero;
-            fillRect.offsetMax = Vector2.zero;
-            var fillImage = fill.AddComponent<Image>();
-            fillImage.color = new Color(1f, 0.55f, 0.18f);
-
-            var slider = go.AddComponent<Slider>();
-            slider.fillRect = fillRect;
-            slider.targetGraphic = fillImage;
-            slider.minValue = 0f;
-            slider.maxValue = 1f;
-            return slider;
-        }
-
-        private static TextMeshProUGUI CreateLabel(Transform parent, string name, Vector2 position, float fontSize, string text)
-        {
-            var go = new GameObject(name);
-            go.transform.SetParent(parent, false);
-            var rect = go.AddComponent<RectTransform>();
-            rect.anchorMin = new Vector2(0.5f, 0.5f);
-            rect.anchorMax = new Vector2(0.5f, 0.5f);
-            rect.pivot = new Vector2(0.5f, 0.5f);
-            rect.anchoredPosition = position;
-            rect.sizeDelta = new Vector2(680, 48);
-
-            var label = go.AddComponent<TextMeshProUGUI>();
-            label.alignment = TextAlignmentOptions.Center;
-            label.fontSize = fontSize;
-            label.color = new Color(0.92f, 0.94f, 0.96f);
-            label.text = text;
-            return label;
-        }
-
-        private static Button CreateButton(Transform parent, string name, Vector2 position, Vector2 size, string labelText)
-        {
-            var go = new GameObject(name);
-            go.transform.SetParent(parent, false);
-            var rect = go.AddComponent<RectTransform>();
-            rect.anchorMin = new Vector2(0.5f, 0.5f);
-            rect.anchorMax = new Vector2(0.5f, 0.5f);
-            rect.pivot = new Vector2(0.5f, 0.5f);
-            rect.anchoredPosition = position;
-            rect.sizeDelta = size;
-
-            var image = go.AddComponent<Image>();
-            image.color = new Color(0.18f, 0.42f, 0.72f);
-
-            var button = go.AddComponent<Button>();
-            button.targetGraphic = image;
-
-            var labelGo = new GameObject("Label");
-            labelGo.transform.SetParent(go.transform, false);
-            var labelRect = labelGo.AddComponent<RectTransform>();
-            labelRect.anchorMin = Vector2.zero;
-            labelRect.anchorMax = Vector2.one;
-            labelRect.offsetMin = Vector2.zero;
-            labelRect.offsetMax = Vector2.zero;
-
-            var label = labelGo.AddComponent<TextMeshProUGUI>();
-            label.alignment = TextAlignmentOptions.Center;
-            label.fontSize = 22;
-            label.color = Color.white;
-            label.text = labelText;
-            return button;
+            _showcasePanel = UiBuilder.CreatePanel(canvas, "ShowcasePanel", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(760, 320));
+            _showcaseTitle = UiBuilder.CreateLabel(_showcasePanel.transform, "ShowcaseTitle", new Vector2(0, 60), 32, "成品展示");
+            _backToWorkshopButton = UiBuilder.CreateButton(_showcasePanel.transform, "BackButton", new Vector2(0, -80), new Vector2(280, 56), "返回工作台");
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using BeadWorks.Data;
 using UnityEngine;
 
@@ -10,6 +11,11 @@ namespace BeadWorks.Services
     /// </summary>
     public class ShareCaptureService
     {
+#if UNITY_IOS && !UNITY_EDITOR
+        [DllImport("__Internal")]
+        private static extern void BeadWorks_SaveImageToPhotos(string pngFilePath, string gameObjectName);
+#endif
+
         private const int ShareWidth = 1080;
         private const int ShareHeight = 1920;
         private const string Watermark = "BeadWorks";
@@ -57,14 +63,25 @@ namespace BeadWorks.Services
             return path;
         }
 
-        public void ShareNative(byte[] pngBytes, string title)
+        /// <summary>
+        /// Saves <paramref name="pngBytes"/> locally and, on iOS device builds, also to the
+        /// system Photos library. <paramref name="onComplete"/> reports whether the Photos
+        /// library write actually succeeded (false + error message on failure/denial) rather
+        /// than assuming success as soon as the native call is fired.
+        /// </summary>
+        public void ShareNative(MonoBehaviour host, byte[] pngBytes, string title, Action<bool, string> onComplete = null)
         {
             var path = SaveToLocal(pngBytes);
-#if UNITY_IOS || UNITY_ANDROID
+#if UNITY_IOS && !UNITY_EDITOR
+            var bridge = SaveToPhotosBridge.EnsureInstance(host.transform);
+            bridge.SaveImageToPhotos(path, onComplete);
+#elif UNITY_ANDROID
             // Native share via file path — no SDK required for first version.
             Debug.Log($"[ShareCapture] Ready for native share: {path}");
+            onComplete?.Invoke(true, null);
 #else
             Debug.Log($"[ShareCapture] Editor: image saved to {path}");
+            onComplete?.Invoke(true, null);
 #endif
         }
 
@@ -194,5 +211,57 @@ namespace BeadWorks.Services
                 }
             }
         }
+
+#if UNITY_IOS && !UNITY_EDITOR
+        /// <summary>
+        /// Receives the async result of <see cref="BeadWorks_SaveImageToPhotos"/> via
+        /// UnitySendMessage, since a plain (non-MonoBehaviour) service class can't be a
+        /// native-callback target itself.
+        /// </summary>
+        private class SaveToPhotosBridge : MonoBehaviour
+        {
+            private const string GameObjectName = "ShareSaveToPhotosBridge";
+            private Action<bool, string> _onComplete;
+
+            public static SaveToPhotosBridge EnsureInstance(Transform parent)
+            {
+                var existing = parent.Find(GameObjectName);
+                if (existing != null)
+                {
+                    var existingComponent = existing.GetComponent<SaveToPhotosBridge>();
+                    if (existingComponent != null)
+                    {
+                        return existingComponent;
+                    }
+                }
+
+                var go = new GameObject(GameObjectName);
+                go.transform.SetParent(parent, false);
+                return go.AddComponent<SaveToPhotosBridge>();
+            }
+
+            public void SaveImageToPhotos(string pngFilePath, Action<bool, string> onComplete)
+            {
+                _onComplete = onComplete;
+                BeadWorks_SaveImageToPhotos(pngFilePath, gameObject.name);
+            }
+
+            /// <summary>Invoked by the native plugin via UnitySendMessage on a successful save.</summary>
+            private void OnNativeSaveToPhotosSucceeded(string _)
+            {
+                var callback = _onComplete;
+                _onComplete = null;
+                callback?.Invoke(true, null);
+            }
+
+            /// <summary>Invoked by the native plugin via UnitySendMessage on a failed/denied save.</summary>
+            private void OnNativeSaveToPhotosFailed(string message)
+            {
+                var callback = _onComplete;
+                _onComplete = null;
+                callback?.Invoke(false, string.IsNullOrEmpty(message) ? "保存到相册失败" : message);
+            }
+        }
+#endif
     }
 }

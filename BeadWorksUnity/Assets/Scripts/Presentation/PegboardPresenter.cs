@@ -9,12 +9,13 @@ namespace BeadWorks.Presentation
     public class PegboardPresenter : MonoBehaviour
     {
         [SerializeField] private Material _holeMaterial;
-        [SerializeField] private Color _boardColor = new(0.72f, 0.74f, 0.76f);
-        [SerializeField] private Color _holeColor = new(0.58f, 0.60f, 0.63f);
+        [SerializeField] private Color _boardColor = new(0.94f, 0.84f, 0.67f);
+        [SerializeField] private Color _holeColor = new(0.44f, 0.31f, 0.20f);
 
         private Transform _gridRoot;
         private int _gridSize;
         private float _cellSize;
+        private Material _sharedHoleMaterial;
 
         public Transform GridOrigin => _gridRoot != null ? _gridRoot : transform;
 
@@ -26,6 +27,12 @@ namespace BeadWorks.Presentation
             if (_gridRoot != null)
             {
                 Destroy(_gridRoot.gameObject);
+            }
+
+            if (_sharedHoleMaterial != null)
+            {
+                Destroy(_sharedHoleMaterial);
+                _sharedHoleMaterial = null;
             }
 
             _gridRoot = new GameObject("PegboardVisual").transform;
@@ -61,6 +68,12 @@ namespace BeadWorks.Presentation
             var holesRoot = new GameObject("Holes").transform;
             holesRoot.SetParent(_gridRoot, false);
 
+            // One shared material for every hole quad: identical color/shading per hole, so
+            // there is no need to clone a material per cell (matters a lot at 29x29-48x48+).
+            var holeMaterial = _holeMaterial != null ? new Material(_holeMaterial) : new Material(Shader.Find("Universal Render Pipeline/Lit"));
+            holeMaterial.color = _holeColor;
+            _sharedHoleMaterial = holeMaterial;
+
             for (var y = 0; y < gridSize; y++)
             {
                 for (var x = 0; x < gridSize; x++)
@@ -71,15 +84,12 @@ namespace BeadWorks.Presentation
 
                     var center = CellToLocalCenter(x, y);
                     hole.transform.localPosition = new Vector3(center.x, center.y, -0.01f);
-                    hole.transform.localScale = Vector3.one * (_cellSize * 0.72f);
+                    // Real pegboard holes are small points, not filled grid squares. Keeping
+                    // these quads compact makes the board read as craft material instead of
+                    // a checkerboard in iPhone portrait framing.
+                    hole.transform.localScale = Vector3.one * (_cellSize * 0.28f);
 
-                    var renderer = hole.GetComponent<MeshRenderer>();
-                    var material = _holeMaterial != null
-                        ? new Material(_holeMaterial)
-                        : new Material(Shader.Find("Universal Render Pipeline/Lit"));
-                    material.color = _holeColor;
-                    renderer.sharedMaterial = material;
-
+                    hole.GetComponent<MeshRenderer>().sharedMaterial = holeMaterial;
                     Destroy(hole.GetComponent<Collider>());
                 }
             }

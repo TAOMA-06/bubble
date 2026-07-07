@@ -180,7 +180,7 @@ namespace BeadWorks.Workshop
             }
             else
             {
-                _gridSize = DefaultGridSize;
+                _gridSize = session?.RequestedGridSize ?? DefaultGridSize;
             }
 
             workbenchBackground?.BuildAround(_boundPegboardRoot, _gridSize);

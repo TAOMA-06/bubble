@@ -13,6 +13,7 @@ namespace BeadWorks.Presentation
         [SerializeField] private float _paddingCells = 2.5f;
 
         private Transform _surface;
+        private static Texture2D _cachedWoodGrainTexture;
 
         public void BuildAround(Transform pegboardRoot, int gridSize)
         {
@@ -37,6 +38,9 @@ namespace BeadWorks.Presentation
                 : new Material(Shader.Find("Universal Render Pipeline/Lit"));
 
             material.color = _surfaceColor;
+            material.mainTexture = GetOrCreateWoodGrainTexture();
+            var tiling = Mathf.Max(1f, totalSize / cellSize / 4f);
+            material.mainTextureScale = new Vector2(tiling, tiling);
             renderer.sharedMaterial = material;
 
             var collider = surfaceObject.GetComponent<Collider>();
@@ -46,6 +50,45 @@ namespace BeadWorks.Presentation
             }
 
             _surface = surfaceObject.transform;
+        }
+
+        /// <summary>
+        /// Procedural warm wood-grain shading multiplier (bands + fine grain noise), tiled and
+        /// tinted by <see cref="_surfaceColor"/> in the material. No external texture asset.
+        /// </summary>
+        private static Texture2D GetOrCreateWoodGrainTexture()
+        {
+            if (_cachedWoodGrainTexture != null)
+            {
+                return _cachedWoodGrainTexture;
+            }
+
+            const int size = 256;
+            const float bandFrequency = 0.15f;
+            const float grainFrequency = 0.06f;
+            const float noiseOffset = 12.3f;
+
+            var texture = new Texture2D(size, size, TextureFormat.RGBA32, false)
+            {
+                name = "BeadWorksWorkbenchWoodGrain",
+                wrapMode = TextureWrapMode.Repeat,
+                filterMode = FilterMode.Bilinear
+            };
+
+            for (var y = 0; y < size; y++)
+            {
+                for (var x = 0; x < size; x++)
+                {
+                    var band = Mathf.PerlinNoise(noiseOffset, y * bandFrequency);
+                    var grain = Mathf.PerlinNoise(x * grainFrequency, (y * 0.01f) + noiseOffset);
+                    var shade = Mathf.Lerp(0.82f, 1.08f, (band * 0.65f) + (grain * 0.35f));
+                    texture.SetPixel(x, y, new Color(shade, shade, shade, 1f));
+                }
+            }
+
+            texture.Apply();
+            _cachedWoodGrainTexture = texture;
+            return texture;
         }
     }
 }

@@ -109,7 +109,7 @@ namespace BeadWorks.UI
             rect.sizeDelta = new Vector2(cellSize, cellSize + 40);
 
             var bg = go.AddComponent<Image>();
-            bg.color = new Color(0.16f, 0.18f, 0.22f);
+            BeadWorksUiTheme.ApplyRounded(bg, BeadWorksUiTheme.PanelSurface);
 
             var button = go.AddComponent<Button>();
             button.targetGraphic = bg;
@@ -154,11 +154,6 @@ namespace BeadWorks.UI
             }
 
             _panel = UiBuilder.CreatePanel(canvas, "GalleryPanel", Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
-            var bg = _panel.GetComponent<Image>();
-            if (bg != null)
-            {
-                bg.color = new Color(0.08f, 0.09f, 0.12f, 0.96f);
-            }
 
             _headerLabel = UiBuilder.CreateLabel(_panel.transform, "Header", new Vector2(0, 780), 40, "作品库");
             _emptyLabel = UiBuilder.CreateLabel(_panel.transform, "Empty", new Vector2(0, 0), 24, "还没有保存的作品");
