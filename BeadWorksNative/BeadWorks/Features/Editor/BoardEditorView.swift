@@ -139,24 +139,44 @@ struct BoardEditorView: View {
             HStack(spacing: 8) {
                 MaterialNote(text: model.selectedColorName, systemImage: "eyedropper.halffull")
                 if model.board.hasTemplate {
-                    Toggle(isOn: $model.showGuide) {
-                        Text("图纸")
-                            .font(.caption.weight(.medium))
+                    overlayToggle(
+                        title: "图纸",
+                        isOn: model.showGuide,
+                        identifier: "guideToggle"
+                    ) {
+                        model.showGuide.toggle()
                     }
-                    .toggleStyle(.button)
-                    .accessibilityIdentifier("guideToggle")
-                    Toggle(isOn: $model.showMismatches) {
-                        Text("纠错")
-                            .font(.caption.weight(.medium))
+                    overlayToggle(
+                        title: "纠错",
+                        isOn: model.showMismatches,
+                        identifier: "mismatchToggle"
+                    ) {
+                        model.showMismatches.toggle()
                     }
-                    .toggleStyle(.button)
-                    .accessibilityIdentifier("mismatchToggle")
                 }
                 Spacer(minLength: 0)
             }
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 12)
+    }
+
+    private func overlayToggle(
+        title: String,
+        isOn: Bool,
+        identifier: String,
+        action: @escaping () -> Void
+    ) -> some View {
+        Button(action: action) {
+            Text(title)
+                .font(.caption.weight(.medium))
+        }
+        .buttonStyle(.bordered)
+        .tint(isOn ? BeadWorksTheme.accent : BeadWorksTheme.ink.opacity(0.55))
+        .accessibilityIdentifier(identifier)
+        .accessibilityLabel(title)
+        .accessibilityValue(isOn ? "开" : "关")
+        .accessibilityAddTraits(.isButton)
     }
 
     private func iconToolButton(_ mode: ToolMode) -> some View {

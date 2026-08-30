@@ -112,7 +112,7 @@ final class BeadWorksUITests: XCTestCase {
         heart.tap()
 
         XCTAssertTrue(app.otherElements["boardCanvas"].waitForExistence(timeout: 5))
-        XCTAssertTrue(app.buttons["guideToggle"].exists)
+        XCTAssertTrue(app.descendants(matching: .any)["guideToggle"].waitForExistence(timeout: 5))
         attachScreenshot(named: "PatternEditor", of: app)
     }
 

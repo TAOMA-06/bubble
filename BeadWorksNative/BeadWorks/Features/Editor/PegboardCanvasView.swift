@@ -43,7 +43,7 @@ struct PegboardCanvasView: View {
                 .contentShape(Rectangle())
                 .optionalGesture(
                     toolMode.paints
-                        ? paintGesture(cellSize: cellSize, boardSize: boardSize, canvasSize: proxy.size)
+                        ? AnyGesture(paintGesture(cellSize: cellSize, boardSize: boardSize, canvasSize: proxy.size))
                         : nil
                 )
                 .accessibilityIdentifier("boardCanvas")
@@ -68,7 +68,7 @@ struct PegboardCanvasView: View {
             }
     }
 
-    private func paintGesture(cellSize: CGFloat, boardSize: CGSize, canvasSize: CGSize) -> DragGesture {
+    private func paintGesture(cellSize: CGFloat, boardSize: CGSize, canvasSize: CGSize) -> some Gesture {
         DragGesture(minimumDistance: 0)
             .onChanged { value in
                 guard toolMode.paints else { return }

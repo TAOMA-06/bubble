@@ -7,6 +7,7 @@ final class BoardStoreTests: XCTestCase {
     override func setUpWithError() throws {
         tempDirectory = FileManager.default.temporaryDirectory
             .appendingPathComponent("BoardStoreTests-\(UUID().uuidString)", isDirectory: true)
+        try FileManager.default.createDirectory(at: tempDirectory, withIntermediateDirectories: true)
     }
 
     override func tearDownWithError() throws {
@@ -102,11 +103,15 @@ final class BoardStoreTests: XCTestCase {
             board: BeadBoard(width: 2, height: 2),
             previewFileName: "legacy.png"
         )
-        var json = try JSONSerialization.jsonObject(with: encoder.encode([work])) as! [[String: Any]]
+        guard var json = try JSONSerialization.jsonObject(with: encoder.encode([work])) as? [[String: Any]] else {
+            XCTFail("gallery JSON should decode as an object array")
+            return
+        }
         json[0].removeValue(forKey: "productType")
         json[0].removeValue(forKey: "renderStyle")
         let data = try JSONSerialization.data(withJSONObject: json)
-        try data.write(to: tempDirectory.appendingPathComponent("index.json"))
+        try FileManager.default.createDirectory(at: tempDirectory, withIntermediateDirectories: true)
+        try data.write(to: tempDirectory.appendingPathComponent("index.json"), options: .atomic)
 
         let store = BoardStore(baseDirectory: tempDirectory)
         XCTAssertEqual(store.works.first?.title, "旧存档")
