@@ -1,7 +1,7 @@
 # 拼豆工坊 iOS 原生 MVP 重构计划（2026-08-30）
 
-> 源计划路径（本机 Hermes，未进 git）：`.hermes/plans/2026-08-30_204842-beadworks-ios-mvp.md`
-> 仓库内无法读取该文件，本计划按游戏设计文档 + 现有 `BeadWorksNative` 轻量切片还原，并作为本次重构的实施记录。
+> 仓库内权威副本：`.hermes/plans/2026-08-30_204842-beadworks-ios-mvp.md`（已入库，供云端读取）。
+> 本文件是同一次重构的实施记录，与 `docs/compose/specs/2026-08-30-beadworks-ios-mvp.md` 对齐。
 
 ## 目标
 
