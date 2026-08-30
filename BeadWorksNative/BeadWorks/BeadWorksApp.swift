@@ -14,7 +14,7 @@ struct BeadWorksApp: App {
     /// UI tests launch with `-uiTestResetStorage` to start from an empty gallery, independent of
     /// whatever earlier test runs left behind in the simulator's Documents directory.
     private static func makeBoardStore() -> BoardStore {
-        if ProcessInfo.processInfo.arguments.contains("-uiTestResetStorage") {
+        if UITestLaunch.resetsStorage {
             try? FileManager.default.removeItem(at: BoardStore.defaultDirectory())
         }
         return BoardStore()

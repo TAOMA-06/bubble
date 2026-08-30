@@ -7,33 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08B217D651D7A36361FDD259 /* BeadBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2835F4AF856C8171B4288DE /* BeadBoardTests.swift */; };
-		13646F40F940D2831F870032 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F9132969C7AE6B2C97112 /* SplashScreenView.swift */; };
-		1ADA52C026A05842A9B157CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B99541A22E006ED6B65E58E3 /* Assets.xcassets */; };
-		28D9551CF81823559AB34546 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA409905864641A51C28E78 /* HomeView.swift */; };
-		3EF7DCE77FF8256157A68377 /* BeadWorksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC29D1DC4CD4699368A79CA2 /* BeadWorksUITests.swift */; };
-		4A2C40C0E6D353FA2B7EF3FB /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB54C4E288E31D1D0A126D /* Components.swift */; };
-		57E99B456DB512875C6D36E4 /* BeadPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA6C330FA0F78F474920679 /* BeadPattern.swift */; };
-		67B53E35FBF04B02BB32E918 /* PhotoTemplateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97393E816A357868B28C41D0 /* PhotoTemplateService.swift */; };
-		687DD1692D1FE9241312B565 /* FinishedWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A87FB6B4F42A82C80B62826 /* FinishedWorkView.swift */; };
-		7AF777F97D68BFC3C0A624FB /* BeadWorksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACEADBB0EB36FD4B62E12A8 /* BeadWorksApp.swift */; };
-		7F5049CC52BD5A547E391F9F /* BeadColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B885F305961BB39ED56E1D3 /* BeadColor.swift */; };
-		9AF861477549CE104D917F05 /* PhotoImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82570C981AD3252D40D70E8 /* PhotoImportView.swift */; };
-		9CFC998433C051DD18C15D22 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4F8E0F84AF0EDE98B3574 /* GalleryView.swift */; };
-		B9DDB80BE3C8920FBC6E55FD /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1381B5C47250E7A4A1C69833 /* HexColor.swift */; };
-		BA14AAD5FFC37098E6F16492 /* BoardStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B7F81A477E7F6ED852BBA0 /* BoardStoreTests.swift */; };
-		BAA896C52D696E9B5D3D40DB /* BeadBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1E792D9CF466847BB8F041 /* BeadBoard.swift */; };
-		BC3927335DD000DE99466AE5 /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961012ED93B0EB8829C06D0A /* AppRootView.swift */; };
-		C290405FB5DD95FC3892A207 /* BeadBoardRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CD79AC4DC8D1F12924122 /* BeadBoardRenderer.swift */; };
-		C30CCF62C8E25E53691FBDD4 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0579FE970050A872E68D77 /* Navigation.swift */; };
-		CB87B6D6FAD347BEF77E9919 /* GalleryWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954CA13743F2F02E1BF10AAF /* GalleryWork.swift */; };
-		D327D8204BACF935B40F6053 /* PhotoTemplateServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EBEE77D4D0AFD9EF3F078A /* PhotoTemplateServiceTests.swift */; };
-		D332AB1E7D909BB37039EAD3 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A68B290D9052D48A8E89AD5 /* Theme.swift */; };
-		DBA5F1E6F783E519870150D7 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC7FA0B9B1046D0DB4D13F8 /* ViewModifiers.swift */; };
-		E344E3AD4D15F46ACDEE7A20 /* BoardEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC935F3D5CA7E0A1D7FF855 /* BoardEditorView.swift */; };
-		F56B73E29F636F4B2AB20D01 /* ToolMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACA57965A41CEC1212E28F3 /* ToolMode.swift */; };
-		F5A7515AD6DE519D8C20F3F6 /* BoardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DD35FBA1DA2E0A693CBD77 /* BoardStore.swift */; };
-		FEA10E033C9C72A668D48221 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CBEE3B3967B3621AD62F13 /* Color+Hex.swift */; };
+		0120CB5AEDBCDCF271A347BD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FACA59566B94E0260847390 /* HomeView.swift */; };
+		01A45DE0B68991D20A7AD5DF /* FinishedWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A34EA6D6DD48CA40A0144C /* FinishedWorkView.swift */; };
+		05F82F9EBA12AA20DF244437 /* BeadMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33749ACA53C40F6BA6BB16F7 /* BeadMaterial.swift */; };
+		0C614D9F10623CF1ECDC1AB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56C31031715603449B79365E /* Assets.xcassets */; };
+		0DB22A146B11B962A3042F49 /* BoardStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07A9D15BCCD76D9EE821A65 /* BoardStoreTests.swift */; };
+		0E15189E5B4E5357127B5FB0 /* GalleryWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF998C134C663694D4AECEE /* GalleryWork.swift */; };
+		10771BBEF1A0F3E681CD52FE /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1980D2719EFA8A91463A41 /* ShareSheet.swift */; };
+		1256D38028CCF10BF9FC285C /* GalleryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C8408749E25137342C2EA3 /* GalleryDetailView.swift */; };
+		2BC5FD82131724517E6BCD7A /* PhotoTemplateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06570BBBCA638E081E7CCC36 /* PhotoTemplateService.swift */; };
+		2CB732625197E50625B2E2D9 /* FinishedProductType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDA7EE4273089FC3EAC23DC /* FinishedProductType.swift */; };
+		3626CF5331103CF6CB2F4240 /* BoardHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3512877515B4ACB7A48EE0 /* BoardHistory.swift */; };
+		39CA08197BF28B519EBD84F4 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD140DB4DDB6B4BE7BBA3E7F /* Theme.swift */; };
+		3B6A9553EFA9D970A735EEA2 /* PatternMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5957D16721CEA1F6138FBD /* PatternMatcher.swift */; };
+		445AEC8286E3501F98CCF1B7 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C93B99CEF5ABF8B02B28DD /* ViewModifiers.swift */; };
+		45502201974F1801AE3B5A42 /* BeadBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6245E1AFB6F463CB0CF51A34 /* BeadBoardTests.swift */; };
+		46F534374E5AE2BE75621EDD /* EditorContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6227D2F3027CBA02A3F8C898 /* EditorContext.swift */; };
+		4B6FDAAE3F49E6F9A9EF4CDE /* BuiltinPatternFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4EEF3E3BB740CE361C2299 /* BuiltinPatternFactory.swift */; };
+		4F1955F93DAB2A3B066BB90B /* BoardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE42CD4CC5BFF5816EA86B /* BoardStore.swift */; };
+		5630098D21F9A1071789AF2F /* BeadWorksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812C11A68DA9F41DCD3F7D17 /* BeadWorksApp.swift */; };
+		584BF3DD3E921349A5D5E712 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62484B364400C26D11BA7F3 /* Color+Hex.swift */; };
+		5A37AA76C683296C599A41EE /* PatternSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16629499604DD482E8DA8A63 /* PatternSource.swift */; };
+		5CFFDD0B42EF5D439BF8B5AE /* BeadWorksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43070917C7F05B67DAB77DDF /* BeadWorksUITests.swift */; };
+		6685EB028C87551CAB809C09 /* PatternSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D219E2BFFF21A3AA90F219 /* PatternSelectView.swift */; };
+		6FA18E464B2E175ADD7A629B /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDF6FD1EA69087456ECF24 /* GalleryView.swift */; };
+		75E7347B01AB362876F9ECC0 /* UITestLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50562555DDDC3B389B91DD05 /* UITestLaunch.swift */; };
+		83006E5A1300E5821A6E2718 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3F7FB01111831553AD99E /* Components.swift */; };
+		87A74E25AFC83CCCD4BB5D0A /* BeadColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736DB04122CAA4DA55AFFCF /* BeadColor.swift */; };
+		88A61620B884E501269DE7EA /* PhotoTemplateServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67486DEE73526AB1A751D6D /* PhotoTemplateServiceTests.swift */; };
+		8B5ADC2173A0364489C0BBA1 /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA53E490163686562B4437 /* AppNavigation.swift */; };
+		8BEF20F158F485AFBBE33DD2 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F5E5ADC6B43A7776AF8C8 /* HexColor.swift */; };
+		90D535221611CDCC89B6C648 /* BeadRenderStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ACCF65B89C27C79909B856 /* BeadRenderStyle.swift */; };
+		93171A57A36A7811479C9C0F /* PhotoImportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889B8C6E65FE178F66189D9F /* PhotoImportViewModel.swift */; };
+		9ADEA36090291039B7C43E2F /* PhotoImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2914D99C5BEF2B0D972B5FE4 /* PhotoImportView.swift */; };
+		9B3B90F61504588DB73851B4 /* WorkshopLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2A82419CAC0E67C6324229 /* WorkshopLogicTests.swift */; };
+		9C322DC4E73357E97E1D6B42 /* BeadPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18CAB58ED1C1081D4E04C59 /* BeadPattern.swift */; };
+		A2FD0B421C8F994A2FB63E2C /* WorkshopDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319E403AA18B11FF97AD8E57 /* WorkshopDraft.swift */; };
+		AF2E1A2BAB2F1A371D225323 /* ToolMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE84EC3613B82B97280CD1 /* ToolMode.swift */; };
+		B3ADB08D149B23F229EA0B69 /* BeadBoardRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11FF9EC18C1C38B838FC7BB /* BeadBoardRenderer.swift */; };
+		BF45DF1DD5B1E46C177F10F3 /* BeadBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33907FD55F0A2D243A49BF22 /* BeadBoard.swift */; };
+		C7C21CC35F8216B43F2BC541 /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B9A8CF414FE9CD6621C43 /* AppRootView.swift */; };
+		CB78CA1B90D585CE2F9ECADD /* BoardEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD1887D4732D9974A7529B /* BoardEditorView.swift */; };
+		D1BE79B619DF5E43AEE0A45D /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE6EB8F37F02D0777A9873D /* SplashScreenView.swift */; };
+		D266678C1D96FB7F2F6DACB6 /* PhotoLibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3A742FA199A4A749A6A519 /* PhotoLibraryService.swift */; };
+		E6A7CDE51A63CF1469D188E3 /* ShareImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EC3F23F51F77989D7A82A0 /* ShareImageService.swift */; };
+		E6C6B432384C151F04C83680 /* BoardEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817B177E886E8EB045278B94 /* BoardEditorViewModel.swift */; };
+		F10951D80CD2E017EAF80F97 /* PegboardCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD03016C2197ABE1BD0782B /* PegboardCanvasView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,137 +73,255 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A87FB6B4F42A82C80B62826 /* FinishedWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedWorkView.swift; sourceTree = "<group>"; };
-		1381B5C47250E7A4A1C69833 /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
-		1A68B290D9052D48A8E89AD5 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		1C136BE50F787A205220DB16 /* BeadWorks.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = BeadWorks.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		23B7F81A477E7F6ED852BBA0 /* BoardStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardStoreTests.swift; sourceTree = "<group>"; };
-		2ACA57965A41CEC1212E28F3 /* ToolMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolMode.swift; sourceTree = "<group>"; };
-		2F4F9132969C7AE6B2C97112 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
-		34DD35FBA1DA2E0A693CBD77 /* BoardStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardStore.swift; sourceTree = "<group>"; };
-		3ACEADBB0EB36FD4B62E12A8 /* BeadWorksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeadWorksApp.swift; sourceTree = "<group>"; };
-		3B885F305961BB39ED56E1D3 /* BeadColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeadColor.swift; sourceTree = "<group>"; };
-		41F4F8E0F84AF0EDE98B3574 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
-		57EBEE77D4D0AFD9EF3F078A /* PhotoTemplateServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTemplateServiceTests.swift; sourceTree = "<group>"; };
-		6E9CD79AC4DC8D1F12924122 /* BeadBoardRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeadBoardRenderer.swift; sourceTree = "<group>"; };
-		7B0579FE970050A872E68D77 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
-		7DC935F3D5CA7E0A1D7FF855 /* BoardEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEditorView.swift; sourceTree = "<group>"; };
-		897884EE719F4A09B03C5978 /* BeadWorksTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = BeadWorksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		954CA13743F2F02E1BF10AAF /* GalleryWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryWork.swift; sourceTree = "<group>"; };
-		961012ED93B0EB8829C06D0A /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
-		97393E816A357868B28C41D0 /* PhotoTemplateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTemplateService.swift; sourceTree = "<group>"; };
-		98CBEE3B3967B3621AD62F13 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
-		9DC7FA0B9B1046D0DB4D13F8 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
-		9F1E792D9CF466847BB8F041 /* BeadBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeadBoard.swift; sourceTree = "<group>"; };
-		A2835F4AF856C8171B4288DE /* BeadBoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeadBoardTests.swift; sourceTree = "<group>"; };
-		ACA6C330FA0F78F474920679 /* BeadPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeadPattern.swift; sourceTree = "<group>"; };
-		B99541A22E006ED6B65E58E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BAA409905864641A51C28E78 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		BFDB54C4E288E31D1D0A126D /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
-		E5CA202FF2A584E10DAD2EAE /* BeadWorksUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = BeadWorksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F82570C981AD3252D40D70E8 /* PhotoImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoImportView.swift; sourceTree = "<group>"; };
-		FC29D1DC4CD4699368A79CA2 /* BeadWorksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeadWorksUITests.swift; sourceTree = "<group>"; };
+		06570BBBCA638E081E7CCC36 /* PhotoTemplateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTemplateService.swift; sourceTree = "<group>"; };
+		08FE84EC3613B82B97280CD1 /* ToolMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolMode.swift; sourceTree = "<group>"; };
+		0FACA59566B94E0260847390 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		16629499604DD482E8DA8A63 /* PatternSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternSource.swift; sourceTree = "<group>"; };
+		26CD1887D4732D9974A7529B /* BoardEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEditorView.swift; sourceTree = "<group>"; };
+		2914D99C5BEF2B0D972B5FE4 /* PhotoImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoImportView.swift; sourceTree = "<group>"; };
+		2AEDF6FD1EA69087456ECF24 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		2F3A742FA199A4A749A6A519 /* PhotoLibraryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryService.swift; sourceTree = "<group>"; };
+		319E403AA18B11FF97AD8E57 /* WorkshopDraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopDraft.swift; sourceTree = "<group>"; };
+		33749ACA53C40F6BA6BB16F7 /* BeadMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeadMaterial.swift; sourceTree = "<group>"; };
+		33907FD55F0A2D243A49BF22 /* BeadBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeadBoard.swift; sourceTree = "<group>"; };
+		38C8408749E25137342C2EA3 /* GalleryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDetailView.swift; sourceTree = "<group>"; };
+		3C098AE3D9CAD7FE31F50D6A /* BeadWorksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeadWorksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		43070917C7F05B67DAB77DDF /* BeadWorksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeadWorksUITests.swift; sourceTree = "<group>"; };
+		45A34EA6D6DD48CA40A0144C /* FinishedWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedWorkView.swift; sourceTree = "<group>"; };
+		50562555DDDC3B389B91DD05 /* UITestLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestLaunch.swift; sourceTree = "<group>"; };
+		56C31031715603449B79365E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		61C93B99CEF5ABF8B02B28DD /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		61FE8511D42E8E17CE781513 /* BeadWorksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeadWorksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6227D2F3027CBA02A3F8C898 /* EditorContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorContext.swift; sourceTree = "<group>"; };
+		6245E1AFB6F463CB0CF51A34 /* BeadBoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeadBoardTests.swift; sourceTree = "<group>"; };
+		6A4EEF3E3BB740CE361C2299 /* BuiltinPatternFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuiltinPatternFactory.swift; sourceTree = "<group>"; };
+		6BF998C134C663694D4AECEE /* GalleryWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryWork.swift; sourceTree = "<group>"; };
+		7736DB04122CAA4DA55AFFCF /* BeadColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeadColor.swift; sourceTree = "<group>"; };
+		7FDA7EE4273089FC3EAC23DC /* FinishedProductType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedProductType.swift; sourceTree = "<group>"; };
+		812C11A68DA9F41DCD3F7D17 /* BeadWorksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeadWorksApp.swift; sourceTree = "<group>"; };
+		817B177E886E8EB045278B94 /* BoardEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEditorViewModel.swift; sourceTree = "<group>"; };
+		889B8C6E65FE178F66189D9F /* PhotoImportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoImportViewModel.swift; sourceTree = "<group>"; };
+		8B5957D16721CEA1F6138FBD /* PatternMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternMatcher.swift; sourceTree = "<group>"; };
+		8D3512877515B4ACB7A48EE0 /* BoardHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardHistory.swift; sourceTree = "<group>"; };
+		8DD03016C2197ABE1BD0782B /* PegboardCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PegboardCanvasView.swift; sourceTree = "<group>"; };
+		8E1980D2719EFA8A91463A41 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
+		92EE42CD4CC5BFF5816EA86B /* BoardStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardStore.swift; sourceTree = "<group>"; };
+		A07A9D15BCCD76D9EE821A65 /* BoardStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardStoreTests.swift; sourceTree = "<group>"; };
+		A1D219E2BFFF21A3AA90F219 /* PatternSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternSelectView.swift; sourceTree = "<group>"; };
+		A6BA53E490163686562B4437 /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
+		CF1B9A8CF414FE9CD6621C43 /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
+		D11FF9EC18C1C38B838FC7BB /* BeadBoardRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeadBoardRenderer.swift; sourceTree = "<group>"; };
+		D1EC3F23F51F77989D7A82A0 /* ShareImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareImageService.swift; sourceTree = "<group>"; };
+		E30F5E5ADC6B43A7776AF8C8 /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
+		E9C3F7FB01111831553AD99E /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		EC1FE998CDECB3275EEFAFFE /* BeadWorks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeadWorks.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE2A82419CAC0E67C6324229 /* WorkshopLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopLogicTests.swift; sourceTree = "<group>"; };
+		EFE6EB8F37F02D0777A9873D /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		F18CAB58ED1C1081D4E04C59 /* BeadPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeadPattern.swift; sourceTree = "<group>"; };
+		F3ACCF65B89C27C79909B856 /* BeadRenderStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeadRenderStyle.swift; sourceTree = "<group>"; };
+		F62484B364400C26D11BA7F3 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
+		F67486DEE73526AB1A751D6D /* PhotoTemplateServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTemplateServiceTests.swift; sourceTree = "<group>"; };
+		FD140DB4DDB6B4BE7BBA3E7F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		135049641D022678428E6685 /* Support */ = {
+		2E4A2CAE2D74081F47025A8E /* App */ = {
 			isa = PBXGroup;
 			children = (
-				98CBEE3B3967B3621AD62F13 /* Color+Hex.swift */,
-				1381B5C47250E7A4A1C69833 /* HexColor.swift */,
-				1A68B290D9052D48A8E89AD5 /* Theme.swift */,
-				9DC7FA0B9B1046D0DB4D13F8 /* ViewModifiers.swift */,
+				A6BA53E490163686562B4437 /* AppNavigation.swift */,
+				CF1B9A8CF414FE9CD6621C43 /* AppRootView.swift */,
+				50562555DDDC3B389B91DD05 /* UITestLaunch.swift */,
 			);
-			path = Support;
+			path = App;
 			sourceTree = "<group>";
 		};
-		1E81EC8CCE0E1640B3299BD0 /* Products */ = {
+		3701B61CCA4E837D6363F58A /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				1C136BE50F787A205220DB16 /* BeadWorks.app */,
-				897884EE719F4A09B03C5978 /* BeadWorksTests.xctest */,
-				E5CA202FF2A584E10DAD2EAE /* BeadWorksUITests.xctest */,
+				33907FD55F0A2D243A49BF22 /* BeadBoard.swift */,
+				7736DB04122CAA4DA55AFFCF /* BeadColor.swift */,
+				F18CAB58ED1C1081D4E04C59 /* BeadPattern.swift */,
+				F3ACCF65B89C27C79909B856 /* BeadRenderStyle.swift */,
+				6227D2F3027CBA02A3F8C898 /* EditorContext.swift */,
+				7FDA7EE4273089FC3EAC23DC /* FinishedProductType.swift */,
+				6BF998C134C663694D4AECEE /* GalleryWork.swift */,
+				16629499604DD482E8DA8A63 /* PatternSource.swift */,
+				08FE84EC3613B82B97280CD1 /* ToolMode.swift */,
+				319E403AA18B11FF97AD8E57 /* WorkshopDraft.swift */,
 			);
-			name = Products;
+			path = Domain;
 			sourceTree = "<group>";
 		};
-		4D675DE07F5F630297509AD8 /* BeadWorksTests */ = {
+		DFFB9E05121376F05EDD4C5D /* Editor */ = {
 			isa = PBXGroup;
 			children = (
-				A2835F4AF856C8171B4288DE /* BeadBoardTests.swift */,
-				23B7F81A477E7F6ED852BBA0 /* BoardStoreTests.swift */,
-				57EBEE77D4D0AFD9EF3F078A /* PhotoTemplateServiceTests.swift */,
+				26CD1887D4732D9974A7529B /* BoardEditorView.swift */,
+				817B177E886E8EB045278B94 /* BoardEditorViewModel.swift */,
+				8DD03016C2197ABE1BD0782B /* PegboardCanvasView.swift */,
 			);
-			path = BeadWorksTests;
+			path = Editor;
 			sourceTree = "<group>";
 		};
-		673427C733C58F540E89DFC9 /* Services */ = {
+		B25237153BE261315DD9C9CE /* FinishedWork */ = {
 			isa = PBXGroup;
 			children = (
-				34DD35FBA1DA2E0A693CBD77 /* BoardStore.swift */,
-				97393E816A357868B28C41D0 /* PhotoTemplateService.swift */,
+				45A34EA6D6DD48CA40A0144C /* FinishedWorkView.swift */,
+			);
+			path = FinishedWork;
+			sourceTree = "<group>";
+		};
+		CE3E34CC1A8AE1ADEF2CEE58 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				38C8408749E25137342C2EA3 /* GalleryDetailView.swift */,
+				2AEDF6FD1EA69087456ECF24 /* GalleryView.swift */,
+			);
+			path = Gallery;
+			sourceTree = "<group>";
+		};
+		478761ECAFC100110B5CB7A8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0FACA59566B94E0260847390 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		7ED754793210AF2A6ED5B644 /* Patterns */ = {
+			isa = PBXGroup;
+			children = (
+				A1D219E2BFFF21A3AA90F219 /* PatternSelectView.swift */,
+			);
+			path = Patterns;
+			sourceTree = "<group>";
+		};
+		707A5C69CBFAB189D5B1E6DA /* PhotoImport */ = {
+			isa = PBXGroup;
+			children = (
+				2914D99C5BEF2B0D972B5FE4 /* PhotoImportView.swift */,
+				889B8C6E65FE178F66189D9F /* PhotoImportViewModel.swift */,
+			);
+			path = PhotoImport;
+			sourceTree = "<group>";
+		};
+		5EADC332C6D28F86142B1404 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				EFE6EB8F37F02D0777A9873D /* SplashScreenView.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		87F6251EA2AE483C6C2C49F3 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				DFFB9E05121376F05EDD4C5D /* Editor */,
+				B25237153BE261315DD9C9CE /* FinishedWork */,
+				CE3E34CC1A8AE1ADEF2CEE58 /* Gallery */,
+				478761ECAFC100110B5CB7A8 /* Home */,
+				7ED754793210AF2A6ED5B644 /* Patterns */,
+				707A5C69CBFAB189D5B1E6DA /* PhotoImport */,
+				5EADC332C6D28F86142B1404 /* Splash */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		4DCC2869A7A9F11AD8306B65 /* Rendering */ = {
+			isa = PBXGroup;
+			children = (
+				D11FF9EC18C1C38B838FC7BB /* BeadBoardRenderer.swift */,
+				33749ACA53C40F6BA6BB16F7 /* BeadMaterial.swift */,
+			);
+			path = Rendering;
+			sourceTree = "<group>";
+		};
+		B6CD903F65DC2B08C479EF45 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8D3512877515B4ACB7A48EE0 /* BoardHistory.swift */,
+				92EE42CD4CC5BFF5816EA86B /* BoardStore.swift */,
+				6A4EEF3E3BB740CE361C2299 /* BuiltinPatternFactory.swift */,
+				8B5957D16721CEA1F6138FBD /* PatternMatcher.swift */,
+				2F3A742FA199A4A749A6A519 /* PhotoLibraryService.swift */,
+				06570BBBCA638E081E7CCC36 /* PhotoTemplateService.swift */,
+				D1EC3F23F51F77989D7A82A0 /* ShareImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		8339ED92D8A2F6C03F1769B4 /* BeadWorks */ = {
+		1DB55D29D5D064183FAB82E6 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				B99541A22E006ED6B65E58E3 /* Assets.xcassets */,
-				3ACEADBB0EB36FD4B62E12A8 /* BeadWorksApp.swift */,
-				ADE3AD5DC2C307F41491122A /* Models */,
-				673427C733C58F540E89DFC9 /* Services */,
-				135049641D022678428E6685 /* Support */,
-				B62BA5165295DC45C0E72F38 /* Views */,
+				F62484B364400C26D11BA7F3 /* Color+Hex.swift */,
+				E30F5E5ADC6B43A7776AF8C8 /* HexColor.swift */,
+				8E1980D2719EFA8A91463A41 /* ShareSheet.swift */,
+				FD140DB4DDB6B4BE7BBA3E7F /* Theme.swift */,
+				61C93B99CEF5ABF8B02B28DD /* ViewModifiers.swift */,
 			);
-			path = BeadWorks;
+			path = Support;
 			sourceTree = "<group>";
 		};
-		ADE3AD5DC2C307F41491122A /* Models */ = {
+		FB7A1AEC2355E421A08419A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9F1E792D9CF466847BB8F041 /* BeadBoard.swift */,
-				3B885F305961BB39ED56E1D3 /* BeadColor.swift */,
-				ACA6C330FA0F78F474920679 /* BeadPattern.swift */,
-				954CA13743F2F02E1BF10AAF /* GalleryWork.swift */,
-				2ACA57965A41CEC1212E28F3 /* ToolMode.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		B62BA5165295DC45C0E72F38 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				961012ED93B0EB8829C06D0A /* AppRootView.swift */,
-				6E9CD79AC4DC8D1F12924122 /* BeadBoardRenderer.swift */,
-				7DC935F3D5CA7E0A1D7FF855 /* BoardEditorView.swift */,
-				BFDB54C4E288E31D1D0A126D /* Components.swift */,
-				0A87FB6B4F42A82C80B62826 /* FinishedWorkView.swift */,
-				41F4F8E0F84AF0EDE98B3574 /* GalleryView.swift */,
-				BAA409905864641A51C28E78 /* HomeView.swift */,
-				7B0579FE970050A872E68D77 /* Navigation.swift */,
-				F82570C981AD3252D40D70E8 /* PhotoImportView.swift */,
-				2F4F9132969C7AE6B2C97112 /* SplashScreenView.swift */,
+				E9C3F7FB01111831553AD99E /* Components.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		BB1FF0655DE583458B2F12D0 = {
+		164869DAC0E02F2C17D4CB82 /* BeadWorks */ = {
 			isa = PBXGroup;
 			children = (
-				8339ED92D8A2F6C03F1769B4 /* BeadWorks */,
-				4D675DE07F5F630297509AD8 /* BeadWorksTests */,
-				DE798D6BF77B31647B8D1D0A /* BeadWorksUITests */,
-				1E81EC8CCE0E1640B3299BD0 /* Products */,
+				2E4A2CAE2D74081F47025A8E /* App */,
+				3701B61CCA4E837D6363F58A /* Domain */,
+				87F6251EA2AE483C6C2C49F3 /* Features */,
+				4DCC2869A7A9F11AD8306B65 /* Rendering */,
+				B6CD903F65DC2B08C479EF45 /* Services */,
+				1DB55D29D5D064183FAB82E6 /* Support */,
+				FB7A1AEC2355E421A08419A8 /* Views */,
+				56C31031715603449B79365E /* Assets.xcassets */,
+				812C11A68DA9F41DCD3F7D17 /* BeadWorksApp.swift */,
 			);
+			path = BeadWorks;
 			sourceTree = "<group>";
 		};
-		DE798D6BF77B31647B8D1D0A /* BeadWorksUITests */ = {
+		9B8E129F49D0FED1DD3752A9 /* BeadWorksTests */ = {
 			isa = PBXGroup;
 			children = (
-				FC29D1DC4CD4699368A79CA2 /* BeadWorksUITests.swift */,
+				6245E1AFB6F463CB0CF51A34 /* BeadBoardTests.swift */,
+				A07A9D15BCCD76D9EE821A65 /* BoardStoreTests.swift */,
+				F67486DEE73526AB1A751D6D /* PhotoTemplateServiceTests.swift */,
+				EE2A82419CAC0E67C6324229 /* WorkshopLogicTests.swift */,
+			);
+			path = BeadWorksTests;
+			sourceTree = "<group>";
+		};
+		E9D24CAE8136FAD6326D1DA0 /* BeadWorksUITests */ = {
+			isa = PBXGroup;
+			children = (
+				43070917C7F05B67DAB77DDF /* BeadWorksUITests.swift */,
 			);
 			path = BeadWorksUITests;
+			sourceTree = "<group>";
+		};
+		2F3A6B1E78F896718625FF06 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC1FE998CDECB3275EEFAFFE /* BeadWorks.app */,
+				61FE8511D42E8E17CE781513 /* BeadWorksTests.xctest */,
+				3C098AE3D9CAD7FE31F50D6A /* BeadWorksUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B9340614599AB78F485950C7 = {
+			isa = PBXGroup;
+			children = (
+				164869DAC0E02F2C17D4CB82 /* BeadWorks */,
+				9B8E129F49D0FED1DD3752A9 /* BeadWorksTests */,
+				E9D24CAE8136FAD6326D1DA0 /* BeadWorksUITests */,
+				2F3A6B1E78F896718625FF06 /* Products */,
+			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,8 +331,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03991F6BE6CD0B3E570C13DD /* Build configuration list for PBXNativeTarget "BeadWorks" */;
 			buildPhases = (
-				0E8ECD11F81E3AAAADEDA2DD /* Sources */,
-				D340984805B2CAE822CBB887 /* Resources */,
+				2FB286088BD0BF8AE88E0D78 /* Sources */,
+				B156C1E46BE15DE52AC798A1 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -205,14 +342,14 @@
 			packageProductDependencies = (
 			);
 			productName = BeadWorks;
-			productReference = 1C136BE50F787A205220DB16 /* BeadWorks.app */;
+			productReference = EC1FE998CDECB3275EEFAFFE /* BeadWorks.app */;
 			productType = "com.apple.product-type.application";
 		};
 		AE555F90B55FCF3FD346B026 /* BeadWorksUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 090F3616A116DADB35974825 /* Build configuration list for PBXNativeTarget "BeadWorksUITests" */;
 			buildPhases = (
-				8A8B48E384D0B5FFEDA5248F /* Sources */,
+				E5C6108F895865A0AEED8D12 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -223,14 +360,14 @@
 			packageProductDependencies = (
 			);
 			productName = BeadWorksUITests;
-			productReference = E5CA202FF2A584E10DAD2EAE /* BeadWorksUITests.xctest */;
+			productReference = 3C098AE3D9CAD7FE31F50D6A /* BeadWorksUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		E89470568F2E3B4CDEA4D11A /* BeadWorksTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEE8CBE0655B95EC3C524615 /* Build configuration list for PBXNativeTarget "BeadWorksTests" */;
 			buildPhases = (
-				E4A7F7A0D0AB950CE880072D /* Sources */,
+				253B7D7D35FBA95AB93123FF /* Sources */,
 			);
 			buildRules = (
 			);
@@ -241,7 +378,7 @@
 			packageProductDependencies = (
 			);
 			productName = BeadWorksTests;
-			productReference = 897884EE719F4A09B03C5978 /* BeadWorksTests.xctest */;
+			productReference = 61FE8511D42E8E17CE781513 /* BeadWorksTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -265,10 +402,10 @@
 				Base,
 				en,
 			);
-			mainGroup = BB1FF0655DE583458B2F12D0;
+			mainGroup = B9340614599AB78F485950C7;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 1E81EC8CCE0E1640B3299BD0 /* Products */;
+			productRefGroup = 2F3A6B1E78F896718625FF06 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -280,61 +417,80 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D340984805B2CAE822CBB887 /* Resources */ = {
+		B156C1E46BE15DE52AC798A1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1ADA52C026A05842A9B157CE /* Assets.xcassets in Resources */,
+				0C614D9F10623CF1ECDC1AB8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0E8ECD11F81E3AAAADEDA2DD /* Sources */ = {
+		2FB286088BD0BF8AE88E0D78 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC3927335DD000DE99466AE5 /* AppRootView.swift in Sources */,
-				BAA896C52D696E9B5D3D40DB /* BeadBoard.swift in Sources */,
-				C290405FB5DD95FC3892A207 /* BeadBoardRenderer.swift in Sources */,
-				7F5049CC52BD5A547E391F9F /* BeadColor.swift in Sources */,
-				57E99B456DB512875C6D36E4 /* BeadPattern.swift in Sources */,
-				7AF777F97D68BFC3C0A624FB /* BeadWorksApp.swift in Sources */,
-				E344E3AD4D15F46ACDEE7A20 /* BoardEditorView.swift in Sources */,
-				F5A7515AD6DE519D8C20F3F6 /* BoardStore.swift in Sources */,
-				FEA10E033C9C72A668D48221 /* Color+Hex.swift in Sources */,
-				4A2C40C0E6D353FA2B7EF3FB /* Components.swift in Sources */,
-				687DD1692D1FE9241312B565 /* FinishedWorkView.swift in Sources */,
-				9CFC998433C051DD18C15D22 /* GalleryView.swift in Sources */,
-				CB87B6D6FAD347BEF77E9919 /* GalleryWork.swift in Sources */,
-				B9DDB80BE3C8920FBC6E55FD /* HexColor.swift in Sources */,
-				28D9551CF81823559AB34546 /* HomeView.swift in Sources */,
-				C30CCF62C8E25E53691FBDD4 /* Navigation.swift in Sources */,
-				9AF861477549CE104D917F05 /* PhotoImportView.swift in Sources */,
-				67B53E35FBF04B02BB32E918 /* PhotoTemplateService.swift in Sources */,
-				13646F40F940D2831F870032 /* SplashScreenView.swift in Sources */,
-				D332AB1E7D909BB37039EAD3 /* Theme.swift in Sources */,
-				F56B73E29F636F4B2AB20D01 /* ToolMode.swift in Sources */,
-				DBA5F1E6F783E519870150D7 /* ViewModifiers.swift in Sources */,
+				0120CB5AEDBCDCF271A347BD /* HomeView.swift in Sources */,
+				01A45DE0B68991D20A7AD5DF /* FinishedWorkView.swift in Sources */,
+				05F82F9EBA12AA20DF244437 /* BeadMaterial.swift in Sources */,
+				0E15189E5B4E5357127B5FB0 /* GalleryWork.swift in Sources */,
+				10771BBEF1A0F3E681CD52FE /* ShareSheet.swift in Sources */,
+				1256D38028CCF10BF9FC285C /* GalleryDetailView.swift in Sources */,
+				2BC5FD82131724517E6BCD7A /* PhotoTemplateService.swift in Sources */,
+				2CB732625197E50625B2E2D9 /* FinishedProductType.swift in Sources */,
+				3626CF5331103CF6CB2F4240 /* BoardHistory.swift in Sources */,
+				39CA08197BF28B519EBD84F4 /* Theme.swift in Sources */,
+				3B6A9553EFA9D970A735EEA2 /* PatternMatcher.swift in Sources */,
+				445AEC8286E3501F98CCF1B7 /* ViewModifiers.swift in Sources */,
+				46F534374E5AE2BE75621EDD /* EditorContext.swift in Sources */,
+				4B6FDAAE3F49E6F9A9EF4CDE /* BuiltinPatternFactory.swift in Sources */,
+				4F1955F93DAB2A3B066BB90B /* BoardStore.swift in Sources */,
+				5630098D21F9A1071789AF2F /* BeadWorksApp.swift in Sources */,
+				584BF3DD3E921349A5D5E712 /* Color+Hex.swift in Sources */,
+				5A37AA76C683296C599A41EE /* PatternSource.swift in Sources */,
+				6685EB028C87551CAB809C09 /* PatternSelectView.swift in Sources */,
+				6FA18E464B2E175ADD7A629B /* GalleryView.swift in Sources */,
+				75E7347B01AB362876F9ECC0 /* UITestLaunch.swift in Sources */,
+				83006E5A1300E5821A6E2718 /* Components.swift in Sources */,
+				87A74E25AFC83CCCD4BB5D0A /* BeadColor.swift in Sources */,
+				8B5ADC2173A0364489C0BBA1 /* AppNavigation.swift in Sources */,
+				8BEF20F158F485AFBBE33DD2 /* HexColor.swift in Sources */,
+				90D535221611CDCC89B6C648 /* BeadRenderStyle.swift in Sources */,
+				93171A57A36A7811479C9C0F /* PhotoImportViewModel.swift in Sources */,
+				9ADEA36090291039B7C43E2F /* PhotoImportView.swift in Sources */,
+				9C322DC4E73357E97E1D6B42 /* BeadPattern.swift in Sources */,
+				A2FD0B421C8F994A2FB63E2C /* WorkshopDraft.swift in Sources */,
+				AF2E1A2BAB2F1A371D225323 /* ToolMode.swift in Sources */,
+				B3ADB08D149B23F229EA0B69 /* BeadBoardRenderer.swift in Sources */,
+				BF45DF1DD5B1E46C177F10F3 /* BeadBoard.swift in Sources */,
+				C7C21CC35F8216B43F2BC541 /* AppRootView.swift in Sources */,
+				CB78CA1B90D585CE2F9ECADD /* BoardEditorView.swift in Sources */,
+				D1BE79B619DF5E43AEE0A45D /* SplashScreenView.swift in Sources */,
+				D266678C1D96FB7F2F6DACB6 /* PhotoLibraryService.swift in Sources */,
+				E6A7CDE51A63CF1469D188E3 /* ShareImageService.swift in Sources */,
+				E6C6B432384C151F04C83680 /* BoardEditorViewModel.swift in Sources */,
+				F10951D80CD2E017EAF80F97 /* PegboardCanvasView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8A8B48E384D0B5FFEDA5248F /* Sources */ = {
+		E5C6108F895865A0AEED8D12 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EF7DCE77FF8256157A68377 /* BeadWorksUITests.swift in Sources */,
+				5CFFDD0B42EF5D439BF8B5AE /* BeadWorksUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E4A7F7A0D0AB950CE880072D /* Sources */ = {
+		253B7D7D35FBA95AB93123FF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08B217D651D7A36361FDD259 /* BeadBoardTests.swift in Sources */,
-				BA14AAD5FFC37098E6F16492 /* BoardStoreTests.swift in Sources */,
-				D327D8204BACF935B40F6053 /* PhotoTemplateServiceTests.swift in Sources */,
+				0DB22A146B11B962A3042F49 /* BoardStoreTests.swift in Sources */,
+				45502201974F1801AE3B5A42 /* BeadBoardTests.swift in Sources */,
+				88A61620B884E501269DE7EA /* PhotoTemplateServiceTests.swift in Sources */,
+				9B3B90F61504588DB73851B4 /* WorkshopLogicTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +535,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_KEY_CFBundleDisplayName = "拼豆工坊";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "将拼豆成品保存到相册以便分享";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "选择照片以生成拼豆模板";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -504,6 +661,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_KEY_CFBundleDisplayName = "拼豆工坊";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "将拼豆成品保存到相册以便分享";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "选择照片以生成拼豆模板";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

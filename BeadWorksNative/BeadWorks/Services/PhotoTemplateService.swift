@@ -19,7 +19,8 @@ enum PhotoTemplateService {
     static func makePattern(
         from image: UIImage,
         gridSize: Int,
-        palette: [BeadColor] = BeadColor.palette
+        palette: [BeadColor] = BeadColor.palette,
+        title: String = "照片拼豆"
     ) throws -> BeadPattern {
         guard gridSize > 0 else { throw PhotoTemplateError.invalidGridSize }
         guard let cgImage = image.cgImage, cgImage.width > 0, cgImage.height > 0 else {
@@ -46,7 +47,31 @@ enum PhotoTemplateService {
             }
         }
 
-        return BeadPattern(size: gridSize, cells: cells)
+        return BeadPattern(
+            title: title,
+            size: gridSize,
+            cells: cells,
+            source: .imported
+        )
+    }
+
+    /// Runs conversion off the main thread so large photos do not freeze the import screen.
+    static func makePatternAsync(
+        from image: UIImage,
+        gridSize: Int,
+        palette: [BeadColor] = BeadColor.palette,
+        title: String = "照片拼豆"
+    ) async throws -> BeadPattern {
+        try await withCheckedThrowingContinuation { continuation in
+            DispatchQueue.global(qos: .userInitiated).async {
+                do {
+                    let pattern = try makePattern(from: image, gridSize: gridSize, palette: palette, title: title)
+                    continuation.resume(returning: pattern)
+                } catch {
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
     }
 
     // MARK: - Pixel sampling

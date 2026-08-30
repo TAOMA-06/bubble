@@ -33,6 +33,18 @@ extension View {
     }
 }
 
+extension View {
+    /// Applies `gesture` only when it is non-nil so drawing and scrolling can share the canvas.
+    @ViewBuilder
+    func optionalGesture<G: Gesture>(_ gesture: G?) -> some View {
+        if let gesture {
+            self.gesture(gesture)
+        } else {
+            self
+        }
+    }
+}
+
 /// Light press feedback (slight scale + fade) for card-like tappable surfaces, e.g. the home
 /// menu buttons, which otherwise get no pressed-state feedback under `.plain` button style.
 struct PressableCardStyle: ButtonStyle {

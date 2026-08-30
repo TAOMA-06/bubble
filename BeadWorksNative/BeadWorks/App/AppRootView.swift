@@ -13,12 +13,8 @@ struct AppRootView: View {
     /// buttons immediately after `app.launch()`, so the splash is skipped under that flag instead
     /// of making every test wait out a fixed splash duration (or forcing every test to first wait
     /// for the splash to dismiss). Real launches always show it.
-    private static var isUITesting: Bool {
-        ProcessInfo.processInfo.arguments.contains("-uiTestResetStorage")
-    }
-
     init() {
-        _showSplash = State(initialValue: !Self.isUITesting)
+        _showSplash = State(initialValue: !UITestLaunch.resetsStorage)
     }
 
     var body: some View {

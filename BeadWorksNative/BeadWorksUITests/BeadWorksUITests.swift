@@ -96,6 +96,42 @@ final class BeadWorksUITests: XCTestCase {
         app.buttons["menuButton_作品库"].tap()
         XCTAssertTrue(app.staticTexts[workTitle].waitForExistence(timeout: 5))
         attachScreenshot(named: "Gallery", of: app)
+
+        app.buttons["galleryCard_\(workTitle)"].tap()
+        XCTAssertTrue(app.buttons["reopenWorkButton"].waitForExistence(timeout: 5))
+        app.buttons["reopenWorkButton"].tap()
+        XCTAssertTrue(app.otherElements["boardCanvas"].waitForExistence(timeout: 5))
+    }
+
+    func testSamplePatternOpensGuidedEditor() {
+        let app = launchApp()
+
+        app.buttons["menuButton_示例图纸"].tap()
+        let heart = app.buttons["patternCard_heart"]
+        XCTAssertTrue(heart.waitForExistence(timeout: 5))
+        heart.tap()
+
+        XCTAssertTrue(app.otherElements["boardCanvas"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["guideToggle"].exists)
+        attachScreenshot(named: "PatternEditor", of: app)
+    }
+
+    func testUndoRemovesLastStroke() {
+        let app = launchApp()
+
+        app.buttons["menuButton_自由创作"].tap()
+        app.buttons["16 × 16 快速板"].tap()
+
+        let canvas = app.otherElements["boardCanvas"]
+        XCTAssertTrue(canvas.waitForExistence(timeout: 5))
+        app.buttons["colorSwatch_2"].tap()
+        canvas.coordinate(withNormalizedOffset: CGVector(dx: 0.4, dy: 0.4)).tap()
+
+        let ironButton = app.buttons["ironButton"]
+        XCTAssertTrue(ironButton.isEnabled)
+
+        app.buttons["undoButton"].tap()
+        XCTAssertFalse(ironButton.isEnabled, "undo should restore an empty board")
     }
 
     private func attachScreenshot(named name: String, of app: XCUIApplication) {
