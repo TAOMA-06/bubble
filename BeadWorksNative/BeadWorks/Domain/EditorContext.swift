@@ -1,20 +1,38 @@
 import Foundation
 
-enum Route: Hashable {
-    case editor(EditorContext)
-    case photoImport
-    case gallery
-}
-
-enum EditorContext: Hashable {
+/// How a session was started. Used for navigation, draft restore, and the editor title.
+enum EditorContext: Hashable, Codable {
     case freeform(size: Int)
     case template(pattern: BeadPattern)
+    case restored(board: BeadBoard, title: String)
 
     static let defaultFreeformSize = 29
     static let compactFreeformSize = 16
+
+    var title: String {
+        switch self {
+        case .freeform:
+            return "自由创作"
+        case .template(let pattern):
+            return pattern.source == .builtin ? pattern.title : "拼豆模板"
+        case .restored(_, let title):
+            return title
+        }
+    }
+
+    func makeBoard() -> BeadBoard {
+        switch self {
+        case .freeform(let size):
+            return BeadBoard(width: size, height: size)
+        case .template(let pattern):
+            return pattern.guidedBoard
+        case .restored(let board, _):
+            return board
+        }
+    }
 }
 
-struct BoardSizeOption: Identifiable, Equatable {
+struct BoardSizeOption: Identifiable, Equatable, Hashable {
     let id: Int
     let size: Int
     let title: String

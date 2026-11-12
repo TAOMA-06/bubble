@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct GalleryView: View {
+    @Binding var path: NavigationPath
     @Environment(BoardStore.self) private var boardStore
     private let columns = [GridItem(.adaptive(minimum: 150), spacing: 16)]
 
@@ -25,12 +26,21 @@ struct GalleryView: View {
                     } else {
                         LazyVGrid(columns: columns, spacing: 16) {
                             ForEach(boardStore.works) { work in
-                                GalleryCard(work: work, image: boardStore.previewImage(for: work))
-                                    .contextMenu {
-                                        Button("删除", role: .destructive) {
-                                            boardStore.delete(work)
-                                        }
+                                Button {
+                                    path.append(Route.galleryDetail(work))
+                                } label: {
+                                    GalleryCard(work: work, image: boardStore.previewImage(for: work))
+                                }
+                                .buttonStyle(PressableCardStyle())
+                                .accessibilityIdentifier("galleryCard_\(work.title)")
+                                .contextMenu {
+                                    Button("重新编辑") {
+                                        path.append(Route.editor(.restored(board: work.board, title: work.title)))
                                     }
+                                    Button("删除", role: .destructive) {
+                                        boardStore.delete(work)
+                                    }
+                                }
                             }
                         }
                         .padding(.horizontal, 16)
@@ -48,7 +58,7 @@ struct GalleryView: View {
 
 #Preview {
     NavigationStack {
-        GalleryView()
+        GalleryView(path: .constant(NavigationPath()))
     }
     .environment(BoardStore())
 }

@@ -32,6 +32,7 @@ targets:
         INFOPLIST_KEY_UISupportedInterfaceOrientations~ipad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown"
         INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
         INFOPLIST_KEY_NSPhotoLibraryUsageDescription: "选择照片以生成拼豆模板"
+        INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription: "将拼豆成品保存到相册以便分享"
 
   BeadWorksTests:
     type: bundle.unit-test

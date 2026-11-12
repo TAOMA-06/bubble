@@ -10,6 +10,10 @@ struct FinishedWorkView: View {
     @State private var didSave = false
     @State private var saveErrorMessage: String?
     @State private var selectedRenderStyle: BeadRenderStyle = .fullFused
+    @State private var productType: FinishedProductType = .fridgeMagnet
+    @State private var shareImage: UIImage?
+    @State private var photoSaveMessage: String?
+    @State private var isSharing = false
 
     var body: some View {
         ZStack {
@@ -20,7 +24,7 @@ struct FinishedWorkView: View {
                     header
 
                     VStack(spacing: 18) {
-                        BeadBoardCanvas(board: board, style: selectedRenderStyle)
+                        BeadBoardCanvas(board: board, style: selectedRenderStyle, showGuide: false)
                             .frame(maxWidth: 280)
                             .padding(12)
                             .background(BeadWorksTheme.paperBackground, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
@@ -45,6 +49,14 @@ struct FinishedWorkView: View {
                                 .foregroundStyle(BeadWorksTheme.ink.opacity(0.56))
                         }
 
+                        Picker("成品类型", selection: $productType) {
+                            ForEach(FinishedProductType.allCases) { type in
+                                Text(type.displayName).tag(type)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        .accessibilityIdentifier("productTypePicker")
+
                         TextField("作品名称", text: $title)
                             .textFieldStyle(.roundedBorder)
                             .disabled(didSave)
@@ -55,8 +67,14 @@ struct FinishedWorkView: View {
                                 .font(.footnote)
                                 .foregroundStyle(.red)
                         }
+                        if let photoSaveMessage {
+                            Text(photoSaveMessage)
+                                .font(.footnote)
+                                .foregroundStyle(BeadWorksTheme.ink.opacity(0.6))
+                        }
 
                         saveButton
+                        shareButtons
                     }
                     .padding(24)
                     .beadPanel(cornerRadius: BeadWorksTheme.panelCornerRadius, fill: BeadWorksTheme.paperBackground)
@@ -69,6 +87,11 @@ struct FinishedWorkView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(BeadWorksTheme.backgroundGradient, for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
+        .sheet(isPresented: $isSharing) {
+            if let shareImage {
+                ShareSheet(items: [shareImage])
+            }
+        }
     }
 
     private var header: some View {
@@ -93,9 +116,30 @@ struct FinishedWorkView: View {
         .tint(didSave ? Color(hex: "#43A047") : BeadWorksTheme.accent)
         .disabled(didSave || title.trimmingCharacters(in: .whitespaces).isEmpty)
         .accessibilityIdentifier("saveWorkButton")
-        // Explicit override so the icon added above never changes the computed accessibility
-        // label away from the exact "已保存到作品库" / "保存到作品库" strings UI tests assert on.
         .accessibilityLabel(label)
+    }
+
+    private var shareButtons: some View {
+        HStack(spacing: 12) {
+            Button {
+                shareImage = makeShareImage()
+                isSharing = true
+            } label: {
+                Label("分享", systemImage: "square.and.arrow.up")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.bordered)
+            .accessibilityIdentifier("shareWorkButton")
+
+            Button {
+                Task { await saveToPhotos() }
+            } label: {
+                Label("存相册", systemImage: "photo")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.bordered)
+            .accessibilityIdentifier("saveToPhotosButton")
+        }
     }
 
     private func save() {
@@ -103,12 +147,27 @@ struct FinishedWorkView: View {
             try boardStore.save(
                 board: board,
                 title: title.trimmingCharacters(in: .whitespaces),
-                previewImage: renderedPreviewImage() ?? previewImage
+                previewImage: renderedPreviewImage() ?? previewImage,
+                productType: productType,
+                renderStyle: selectedRenderStyle
             )
             didSave = true
             saveErrorMessage = nil
+            boardStore.clearDraft()
         } catch {
             saveErrorMessage = "保存失败，请重试"
+        }
+    }
+
+    private func saveToPhotos() async {
+        let image = makeShareImage()
+        do {
+            try await PhotoLibraryService.save(image)
+            photoSaveMessage = "已保存到系统相册"
+        } catch PhotoLibraryServiceError.denied {
+            photoSaveMessage = "没有相册权限，请在设置中允许写入"
+        } catch {
+            photoSaveMessage = "保存到相册失败，请重试"
         }
     }
 
@@ -116,5 +175,17 @@ struct FinishedWorkView: View {
         let renderer = ImageRenderer(content: IroningRenderView(board: board, style: selectedRenderStyle))
         renderer.scale = UIScreen.main.scale
         return renderer.uiImage
+    }
+
+    private func makeShareImage() -> UIImage {
+        let boardImage = renderedPreviewImage() ?? previewImage
+        return ShareImageService.composeCard(
+            boardImage: boardImage,
+            title: title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "我的拼豆作品" : title,
+            beadCount: board.filledCount,
+            width: board.width,
+            height: board.height,
+            productType: productType
+        )
     }
 }

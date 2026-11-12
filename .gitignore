@@ -14,3 +14,8 @@ BeadWorksUnity/obj/
 **/*.xcodeproj/xcuserdata/
 **/*.xcodeproj/project.xcworkspace/xcuserdata/
 *.xcworkspace/xcuserdata/
+
+# 本地工作树与构建产物
+.worktrees/
+BeadWorksServer/node_modules/
+BeadWorksServer/dist/

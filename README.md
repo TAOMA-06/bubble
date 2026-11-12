@@ -1,6 +1,6 @@
 # BeadWorks（拼豆工坊）
 
-拼豆手游。当前的**轻量交付主线**是原生 iOS（**SwiftUI + Canvas + PhotosPicker**，`BeadWorksNative/`），核心玩法围绕两条主线——**自由创作**与**导入图片生成拼豆模板**——展开，辅以拼豆编辑、熨烫、成品与作品库的完整闭环。此前的 Unity（URP + C#）工程（`BeadWorksUnity/`）暂停投入，保留在仓库中不删除。
+拼豆手游。当前的**轻量交付主线**是原生 iOS（**SwiftUI + Canvas + PhotosPicker**，`BeadWorksNative/`），核心玩法围绕两条主线——**自由创作**与**导入图片生成拼豆模板**——展开，辅以示例图纸复刻、拼豆编辑、熨烫、成品、作品库与分享。此前的 Unity（URP + C#）工程（`BeadWorksUnity/`）暂停投入，保留在仓库中不删除。
 
 ## 项目结构
 
@@ -43,4 +43,4 @@ open BeadWorksNative/BeadWorks.xcodeproj
 
 早期曾用 SwiftUI 实现一版 MVP 后转向 Unity；现已回到原生 SwiftUI 作为轻量交付主线，Unity 版本保留供参考、暂停继续投入。
 
-设计文档 `docs/compose/specs/2026-06-12-perler-bead-game-design.md` 仍以 Unity 实现描述较完整的游戏愿景；原生 iOS 版本是同一自由创作/导入图片主线的轻量首版实现。
+原生主线设计见 `docs/compose/specs/2026-08-30-beadworks-ios-mvp.md`。`docs/compose/specs/2026-06-12-perler-bead-game-design.md` 仍描述 Unity 侧更完整的 3D / 热量熨烫愿景，该工程暂停投入。

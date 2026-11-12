@@ -7,6 +7,7 @@ final class BoardStoreTests: XCTestCase {
     override func setUpWithError() throws {
         tempDirectory = FileManager.default.temporaryDirectory
             .appendingPathComponent("BoardStoreTests-\(UUID().uuidString)", isDirectory: true)
+        try FileManager.default.createDirectory(at: tempDirectory, withIntermediateDirectories: true)
     }
 
     override func tearDownWithError() throws {
@@ -70,5 +71,50 @@ final class BoardStoreTests: XCTestCase {
         XCTAssertTrue(store.works.isEmpty)
         XCTAssertFalse(FileManager.default.fileExists(atPath: tempDirectory.appendingPathComponent(first.previewFileName).path))
         XCTAssertFalse(FileManager.default.fileExists(atPath: tempDirectory.appendingPathComponent(second.previewFileName).path))
+    }
+
+    func testDraftRoundTripsAcrossStoreInstances() {
+        let firstStore = BoardStore(baseDirectory: tempDirectory)
+        var board = BeadBoard(width: 3, height: 3)
+        board.place(colorId: 2, x: 1, y: 1)
+        firstStore.saveDraft(
+            WorkshopDraft(
+                context: .freeform(size: 3),
+                board: board,
+                selectedColorId: 2,
+                updatedAt: Date()
+            )
+        )
+
+        let secondStore = BoardStore(baseDirectory: tempDirectory)
+        XCTAssertEqual(secondStore.draft?.board.colorId(atX: 1, y: 1), 2)
+        XCTAssertEqual(secondStore.draft?.selectedColorId, 2)
+
+        secondStore.clearDraft()
+        let thirdStore = BoardStore(baseDirectory: tempDirectory)
+        XCTAssertNil(thirdStore.draft)
+    }
+
+    func testLegacyGalleryJSONWithoutProductTypeStillDecodes() throws {
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        let work = GalleryWork(
+            title: "旧存档",
+            board: BeadBoard(width: 2, height: 2),
+            previewFileName: "legacy.png"
+        )
+        guard var json = try JSONSerialization.jsonObject(with: encoder.encode([work])) as? [[String: Any]] else {
+            XCTFail("gallery JSON should decode as an object array")
+            return
+        }
+        json[0].removeValue(forKey: "productType")
+        json[0].removeValue(forKey: "renderStyle")
+        let data = try JSONSerialization.data(withJSONObject: json)
+        try FileManager.default.createDirectory(at: tempDirectory, withIntermediateDirectories: true)
+        try data.write(to: tempDirectory.appendingPathComponent("index.json"), options: .atomic)
+
+        let store = BoardStore(baseDirectory: tempDirectory)
+        XCTAssertEqual(store.works.first?.title, "旧存档")
+        XCTAssertEqual(store.works.first?.productType, .fridgeMagnet)
     }
 }
